@@ -1,18 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import App from './App';
+import { List, Add, Overview, Profile } from "./pages";
+import './index.css';
 
 const router = createBrowserRouter([
   {
     path: "/",
     // element: <div>Hello world!</div>,
     element: <App />,
+    children: [
+      {
+        path: "list",
+        element: <List />,
+      },
+      {
+        path: "add",
+        element: <Add />,
+      },
+      {
+        path: "overview",
+        element: <Overview />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+    ],
   },
 ]);
 
