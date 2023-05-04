@@ -1,4 +1,34 @@
-.c-header__item-icon {
-    width: 24px;
-    height: 24px;
+.c-header {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1.6rem 0;
+}
+
+.c-header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.c-header__item-wpr .c-header__item-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-header__item-link > svg {
+  width: 2.6rem;
+  height: 2.6rem;
+}
+
+.c-header__item-link.active svg > * {
+  fill: var(--icon-active) !important;
+}
+
+.c-header__item-wpr__title {
+    margin-top: 0.2rem;
+    font-weight: 500;
+    font-size: 1.3rem;
 }

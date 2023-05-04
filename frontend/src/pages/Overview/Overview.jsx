@@ -3,7 +3,7 @@ import './Overview.css'
 
 const Overview = () => {
   return (
-    <div>
+    <div className='page'>
       Overview
     </div>
   );

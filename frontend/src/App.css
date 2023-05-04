@@ -1,7 +1,9 @@
 .App {
-  /* text-align: center; */
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: end; */
 }
-
 
 @media (prefers-reduced-motion: no-preference) {
 }
