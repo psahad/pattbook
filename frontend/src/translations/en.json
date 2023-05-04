@@ -4,5 +4,12 @@
         "add": "Add",
         "statistics": "Stats",
         "profile": "Profile"
+    },
+    "list": {
+        "tab": {
+            "all": "All",
+            "lender": "Lender",
+            "borrower": "Borrower"
+        }
     }
 }

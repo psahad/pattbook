@@ -1,0 +1,19 @@
+.c-tab {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--bg-primary);
+    
+}
+
+.c-tab__tab-btn {
+    padding: 1rem 0.8rem;
+    background-color: transparent;
+    color: var(--fc-primary);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.c-tab__tab-btn--active {
+    border-bottom: 3px solid var(--clr-primary)
+}

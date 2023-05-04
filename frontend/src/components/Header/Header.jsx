@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Header.css"
 import useTranslation from '../../hooks/useTranslation';
 
 const Header = () => {
-  const { language, setLanguage, setFallbackLanguage, t } = useTranslation()
+  const { t } = useTranslation()
   return (
     <header className='c-header'>
       {/* <nav className="c-header__nav"> */}

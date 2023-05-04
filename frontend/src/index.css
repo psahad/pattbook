@@ -16,9 +16,15 @@ html {
   font-size: 10px;
 }
 
+body > * {
+  font-family: "Poppins", sans-serif;
+
+}
+
 body,
 main {
   background-color: #ffffff;
+  font-family: "Poppins", sans-serif;
 }
 
 a,
@@ -44,6 +50,8 @@ h6 {
 
 button {
   cursor: pointer;
+  font-family: "Poppins", sans-serif;
+
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -64,6 +72,8 @@ textarea {
 
 
 :root {
+  --clr-primary: #32BE4B;
+
   --bg-primary: #fff;
   --bg-secondary: #f9fafb;
 
@@ -75,12 +85,14 @@ textarea {
   --fc-secondary: #9A9A9A;
 
 
-  --icon-fill-active: #32BE4B;
+  --icon-fill-active: var(--clr-primary);
   --icon-stroke-active: #434343;
   --icon-stroke: #434343;
 }
 
 body.theme-dark-green {
+  --clr-primary: #32BE4B;
+
   --bg-primary: #121212;
   --bg-secondary: #1F1F1F;
 
