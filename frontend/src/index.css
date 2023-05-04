@@ -66,17 +66,32 @@ textarea {
 :root {
   --bg-primary: #fff;
   --bg-secondary: #f9fafb;
-  --bg-tertiary: #f3f4f6;
 
-  --icon-active: #32BE4B;
-  --icon-inactive: #434343;
+  --bg-header: #f9fafb;
+  --fc-header-primary: #1A1A1A;
+  --fc-header-primary-active: #1A1A1A;
+
+  --fc-primary: #1A1A1A;
+  --fc-secondary: #9A9A9A;
+
+
+  --icon-fill-active: #32BE4B;
+  --icon-stroke-active: #434343;
+  --icon-stroke: #434343;
 }
 
-body.dark-mode {
-  --bg-primary: #030712;
-  --bg-secondary: #1f2937;
-  --bg-tertiary: #4b5563;
+body.theme-dark-green {
+  --bg-primary: #121212;
+  --bg-secondary: #1F1F1F;
 
-  --icon-active: #32BE4B;
-  --icon-inactive: #434343;
+  --bg-header: #1F1F1F;
+  --fc-header-primary: #818181;
+  --fc-header-primary-active: #C7C7C7;
+
+  --fc-primary: #C7C7C7;
+  --fc-secondary: #818181;
+
+  --icon-fill-active: transparent;
+  --icon-stroke-active: #C7C7C7;
+  --icon-stroke: #818181;
 }
