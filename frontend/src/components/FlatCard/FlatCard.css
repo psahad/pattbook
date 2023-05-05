@@ -1,14 +1,6 @@
 .c-flatcard {
-  margin-bottom: 2rem;
+  margin-bottom: 1.6rem;
   padding: 1.6rem 1.8rem;
-  /* background-color: rgba(19, 201, 62, 40%); */
-  /* background-color: gradient(#13C93E , #ADE446); */
-  /* background: rgb(173,228,70); */
-  /* background-color: rgba(34, 197, 94, 0.378); */
-  /* background-color: rgb(209, 250, 229); */
-  /* background-color: rgb(0 255 124 / 25%); */
-  /* border: 1px solid #0fdd2c; */
-  /* background: linear-gradient(117deg, rgba(173,228,70,1) 0%, rgba(19,201,62,1) 68%); */
   border-radius: 2rem;
   color: var(--fc-primary);
 }

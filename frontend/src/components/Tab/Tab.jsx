@@ -1,23 +1,18 @@
-import React, {useState} from "react";
+import React from "react";
 import "./Tab.css";
 
-const Tab = ({tabs = [], defaultTab, onTabChange}) => {
-  const [activeTab, setActiveTab] = useState(defaultTab);
-  const handleChange = (selectedTab) => {
-    setActiveTab(selectedTab);
-    onTabChange(selectedTab)
-  };
+const Tab = ({tabs = [], activeTab, onTabChange}) => {
 
   return (
     <div className="c-tab">
-      {tabs.map((tab) => {
+      {tabs.map((tab, index) => {
         return (
           <button
             // style={{'--tab-length': tabs.length}}
             className={`c-tab__tab-btn ${
-              activeTab === tab.value && "c-tab__tab-btn--active"
+              activeTab.value === tab.value && "c-tab__tab-btn--active"
             }`}
-            onClick={() => handleChange(tab.value)}
+            onClick={() => onTabChange(tab.value, index)}
             key={tab.value}
           >
             {tab.label}
