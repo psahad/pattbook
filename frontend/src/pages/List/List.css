@@ -1,3 +1,9 @@
-div {
+/* div {
     font-size: 2rem;
+} */
+
+.p-list__flatcard-container {
+    height: calc(100vh - 86px);
+    height: calc(100dvh - 86px);
+    overflow: auto;
 }

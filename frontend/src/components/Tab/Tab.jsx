@@ -5,7 +5,7 @@ const Tab = ({tabs = [], defaultTab, onTabChange}) => {
   const [activeTab, setActiveTab] = useState(defaultTab);
   const handleChange = (selectedTab) => {
     setActiveTab(selectedTab);
-    // onTabChange(selectedTab)
+    onTabChange(selectedTab)
   };
 
   return (
@@ -18,8 +18,8 @@ const Tab = ({tabs = [], defaultTab, onTabChange}) => {
               activeTab === tab.value && "c-tab__tab-btn--active"
             }`}
             onClick={() => handleChange(tab.value)}
+            key={tab.value}
           >
-            {/* <span className="c-tab__link-title">{tab.label}</span> */}
             {tab.label}
           </button>
         );

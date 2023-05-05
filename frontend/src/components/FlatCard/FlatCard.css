@@ -1,0 +1,65 @@
+.c-flatcard {
+  margin-bottom: 2rem;
+  padding: 1.6rem 1.8rem;
+  /* background-color: rgba(19, 201, 62, 40%); */
+  /* background-color: gradient(#13C93E , #ADE446); */
+  /* background: rgb(173,228,70); */
+  /* background-color: rgba(34, 197, 94, 0.378); */
+  /* background-color: rgb(209, 250, 229); */
+  /* background-color: rgb(0 255 124 / 25%); */
+  /* border: 1px solid #0fdd2c; */
+  /* background: linear-gradient(117deg, rgba(173,228,70,1) 0%, rgba(19,201,62,1) 68%); */
+  border-radius: 2rem;
+  color: var(--fc-primary);
+}
+
+.c-flatcard--lend {
+  background-color: var(--bg-flatcard-green);
+}
+.c-flatcard--borrow {
+  background-color: var(--bg-flatcard-red);
+}
+.c-flatcard--closed {
+  background-color: var(--bg-flatcard-grey);
+}
+
+.c-flatcard__top-section,
+.c-flatcard__bottom-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.c-flatcard__name {
+  font-weight: 500;
+}
+
+.c-flatcard__amount {
+}
+
+.c-flatcard__name,
+.c-flatcard__amount {
+  line-height: 1.8rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.c-flatcard__bottom-section {
+  margin-top: 1.2rem;
+}
+
+.c-flatcard__purpose,
+.c-flatcard__date {
+  /* color: var(--fc-secondary); */
+}
+.c-flatcard__purpose {
+  font-weight: 500;
+  margin-top: 0.4rem;
+  font-size: 1.2rem;
+}
+
+.c-flatcard__date {
+  color: var(--fc-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+}

@@ -7,3 +7,12 @@
 
 @media (prefers-reduced-motion: no-preference) {
 }
+
+/* ::::::::::::::::::::::::::::::::::::: Util Classes ::::::::::::::::::::::::::::::::::::::::::: */
+/* ::::::: Font Family ::::::::: */
+.ff-poppins {
+  font-family: var(--ff-poppins);
+}
+.ff-montserrat {
+  font-family: var(--ff-montserrat);
+}

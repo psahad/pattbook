@@ -1,3 +1,62 @@
+/* ::::::::::::::::::::::::::: Variables :::::::::::::::::::::::::::::: */
+:root {
+  --clr-primary: #32be4b;
+
+  /* background */
+  --bg-primary: #fff;
+  --bg-secondary: #f9fafb;
+
+  /* font color */
+  --fc-primary: #1a1a1a;
+  --fc-secondary: #9a9a9a;
+
+  /* header */
+  --bg-header: #f9fafb;
+  --fc-header-primary: #1a1a1a;
+  --fc-header-primary-active: #1a1a1a;
+
+  /* header icon */
+  --icon-fill-active: var(--clr-primary);
+  --icon-stroke-active: #434343;
+  --icon-stroke: #434343;
+
+  /* flatcard */
+  --bg-flatcard-green: rgba(0, 255, 42, 0.204);
+  --bg-flatcard-red: rgba(255, 0, 25, 0.12);
+  --bg-flatcard-grey: rgba(174, 174, 174, 0.24);
+
+  /* font family */
+  --ff-poppins: "Poppins", sans-serif;
+  --ff-montserrat: "Montserrat", sans-serif;
+}
+
+body.theme-dark-green {
+  --clr-primary: #32be4b;
+
+  /* background */
+  --bg-primary: #121212;
+  --bg-secondary: #1f1f1f;
+
+  /* font color */
+  --fc-primary: #c7c7c7;
+  --fc-secondary: #818181;
+
+  /* header */
+  --bg-header: #1f1f1f;
+  --fc-header-primary: #818181;
+  --fc-header-primary-active: #c7c7c7;
+
+  /* header icon */
+  --icon-fill-active: transparent;
+  --icon-stroke-active: #c7c7c7;
+  --icon-stroke: #818181;
+
+  /* flatcard */
+  --bg-flatcard-green: rgba(0, 255, 42, 0.25);
+  --bg-flatcard-red: rgba(255, 0, 25, 0.216);
+  --bg-flatcard-grey: rgba(152, 152, 152, 0.25);
+}
+
 /* ::::::::::::::::::::::::::: Resets :::::::::::::::::::::::::::::: */
 * {
   padding: 0;
@@ -12,19 +71,18 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--ff-poppins);
   font-size: 10px;
 }
 
 body > * {
-  font-family: "Poppins", sans-serif;
-
+  font-family: var(--ff-poppins);
 }
 
 body,
 main {
   background-color: #ffffff;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--ff-poppins);
 }
 
 a,
@@ -50,8 +108,7 @@ h6 {
 
 button {
   cursor: pointer;
-  font-family: "Poppins", sans-serif;
-
+  font-family: var(--ff-poppins);
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -68,42 +125,4 @@ input[type="number"] {
 
 textarea {
   resize: none;
-}
-
-
-:root {
-  --clr-primary: #32BE4B;
-
-  --bg-primary: #fff;
-  --bg-secondary: #f9fafb;
-
-  --bg-header: #f9fafb;
-  --fc-header-primary: #1A1A1A;
-  --fc-header-primary-active: #1A1A1A;
-
-  --fc-primary: #1A1A1A;
-  --fc-secondary: #9A9A9A;
-
-
-  --icon-fill-active: var(--clr-primary);
-  --icon-stroke-active: #434343;
-  --icon-stroke: #434343;
-}
-
-body.theme-dark-green {
-  --clr-primary: #32BE4B;
-
-  --bg-primary: #121212;
-  --bg-secondary: #1F1F1F;
-
-  --bg-header: #1F1F1F;
-  --fc-header-primary: #818181;
-  --fc-header-primary-active: #C7C7C7;
-
-  --fc-primary: #C7C7C7;
-  --fc-secondary: #818181;
-
-  --icon-fill-active: transparent;
-  --icon-stroke-active: #C7C7C7;
-  --icon-stroke: #818181;
 }
