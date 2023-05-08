@@ -2,18 +2,22 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
+    /* background-color: var(--bg-secondary); */
     
 }
 
 .c-tab__tab-btn {
     padding: 1rem 0.8rem;
     background-color: transparent;
-    color: var(--fc-primary);
+    color: var(--fc-secondary);
+    /* color: var(--fc-primary); */
     font-size: 1.4rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .c-tab__tab-btn--active {
+    color: var(--fc-primary);
+
     border-bottom: 3px solid var(--clr-primary)
 }
