@@ -3,7 +3,6 @@
     align-items: center;
     justify-content: space-evenly;
     background-color: var(--bg-primary);
-    /* background-color: var(--bg-secondary); */
     
 }
 
@@ -11,7 +10,6 @@
     padding: 1rem 0.8rem;
     background-color: transparent;
     color: var(--fc-secondary);
-    /* color: var(--fc-primary); */
     font-size: 1.4rem;
     font-weight: 400;
 }
