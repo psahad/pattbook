@@ -11,5 +11,17 @@
             "lender": "Lender",
             "borrower": "Borrower"
         }
+    },
+    "add": {
+        "tab": {
+            "lending": {
+                "label": "Lending",
+                "title": "Add a lending to your account"
+            },
+            "borrowing": {
+                "label": "Borrowing",
+                "title": "Add a borrowing to your account"
+            }
+        }
     }
 }

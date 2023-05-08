@@ -1,0 +1,26 @@
+.p-add__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 30rem;
+  margin: 2rem auto;
+}
+
+.p-add__header__icon-container {
+  display: inline-block;
+  width: 13rem;
+  height: 13rem;
+  padding: 1.8rem;
+  border: 1.3px solid black;
+  border-radius: 50%;
+}
+
+.p-add__header__title {
+  margin-top: 2rem;
+  font-weight: 300;
+  font-size: 3rem;
+  line-height: 3.8rem;
+  text-align: center;
+  color: var(--fc-primary);
+}
