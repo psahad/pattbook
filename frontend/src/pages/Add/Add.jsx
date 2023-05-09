@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Tab} from "../../components";
+import {Tab, Input} from "../../components";
 import useTranslation from "../../hooks/useTranslation";
 import useSwipeDetection from "../../hooks/useSwipeDetection";
 import "./Add.css";
@@ -62,7 +62,9 @@ const Add = () => {
             {activeTab.value === "lending" ? t("add.tab.lending.title") : t("add.tab.borrowing.title") }
           </h3>
         </div>
-
+        <form className="p-add__form">
+            <Input label={"Name of the Person"} placeholder={"Name"} type={"text"} inpId={"LenderName"} />
+        </form>
       </section>
   </div>;
 };

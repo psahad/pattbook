@@ -23,5 +23,8 @@
                 "title": "Add a borrowing to your account"
             }
         }
+    },
+    "validations": {
+        "mandatory": "This field is mandatory"
     }
 }
