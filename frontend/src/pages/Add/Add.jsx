@@ -1,13 +1,17 @@
-import {useEffect, useState} from "react";
-import {Tab, Input} from "../../components";
+import {useEffect, useRef, useState} from "react";
+import {Tab, Input, Button} from "../../components";
 import useTranslation from "../../hooks/useTranslation";
 import useSwipeDetection from "../../hooks/useSwipeDetection";
 import "./Add.css";
 
 const Add = () => {
   const {t} = useTranslation();
+
+  const [formError, setFormError] = useState({
+    borrowerName: true,
+    amount: true,
+  });
   const {swipeDirection, swipeChangeTracker} = useSwipeDetection();
-  const [transactionItems, setTransactItems] = useState("lending");
   const [activeTab, setActiveTab] = useState({
     tabIndex: 0,
     value: "lending",
@@ -22,6 +26,13 @@ const Add = () => {
       value: "borrowing",
     },
   ];
+  const borrowerNameInpRefObj = useRef();
+  const amountInpRefObj = useRef();
+
+  const inpRefObjs  = {
+    borrowerNameInpRefObj,
+    amountInpRefObj
+  }
 
   const onTabSwipe = (tabList, direction, activeTab, cb) => {
     if (
@@ -36,6 +47,26 @@ const Add = () => {
     onTabChange(nextTab, nextIndex);
   };
 
+  const formValidator = () => {
+    let formIsValid = true;
+    Object.entries(inpRefObjs).forEach(([key, value]) => {
+      let inpValidationResult = value.current.validateInp()
+      inpValidationResult.forEach((res) => {
+        if (!inpValidationResult) {
+          formIsValid = false;
+        }
+      })
+    })
+
+    return formIsValid;
+  }
+  
+  const handleLendSubmit = (e) => {
+    e.preventDefault();
+    // formValidator()
+    console.log('formValidator()', formValidator());
+  };
+
   useEffect(() => {
     if (!(swipeDirection === "right" || swipeDirection === "left")) return;
     onTabSwipe(listTabs, swipeDirection, activeTab);
@@ -46,9 +77,10 @@ const Add = () => {
       tabIndex: activeTabIndex,
       value: activeTab,
     });
-    setTransactItems("BORROW");
   };
-  return <div className="page p-add">
+
+  return (
+    <div className="page p-add">
       <Tab tabs={listTabs} activeTab={activeTab} onTabChange={onTabChange} />
       <section className="page-section p-add__section">
         <div className="p-add__header">
@@ -59,17 +91,50 @@ const Add = () => {
             }
           </span> */}
           <h3 className="p-add__header__title">
-            {activeTab.value === "lending" ? t("add.tab.lending.title") : t("add.tab.borrowing.title") }
+            {activeTab.value === "lending"
+              ? t("add.tab.lending.title")
+              : t("add.tab.borrowing.title")}
           </h3>
         </div>
-        <form className="p-add__form">
-            <Input label={"Name of Borrower"} type={"text"} inpId={"borrowerName"} isRequired="true"/>
-            <Input label={"Amount"} type={"number"} inpId={"amount"} isRequired="true"/>
-            <Input label={"Purpose"} type={"text"} inpId={"purpose"} maxLength="50"/>
-            <Input label={"Expected Date of Return"} type={"date"} inpId={"returnDate"}/>
+        <form className="p-add__form" onSubmit={handleLendSubmit}>
+          <Input
+            label={"Name of Borrower"}
+            type={"text"}
+            inpId={"borrowerName"}
+            isRequired="true"
+            setFormError={setFormError}
+            ref={borrowerNameInpRefObj}
+          />
+          <Input
+            label={"Amount"}
+            type={"number"}
+            inpId={"amount"}
+            isRequired="true"
+            setFormError={setFormError}
+            ref={amountInpRefObj}
+          />
+          <Input
+            label={"Purpose"}
+            type={"text"}
+            inpId={"purpose"}
+            maxLength="50"
+          />
+          <Input
+            label={"Expected Date of Return"}
+            type={"date"}
+            inpId={"returnDate"}
+          />
+          <Button
+            btnName={"Add"}
+            type={"submit"}
+            variant={"primary"}
+            btnWprClasses={"p-add__form__btn-submit"}
+            isDisabled={Object.entries(formError).find(([key, value]) => value === true)}
+          />
         </form>
       </section>
-  </div>;
+    </div>
+  );
 };
 
 export default Add;

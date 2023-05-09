@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import React, {useEffect, useImperativeHandle, useRef, useState} from "react";
 import "./Input.css";
 import {mandatoryValidate} from "../../utils/validations";
 import useTranslation from "../../hooks/useTranslation";
@@ -16,17 +16,20 @@ const Input = ({
   isRequired = false,
   maxLength = "",
   minLength = "",
-}) => {
+  setFormError = () => {},
+  
+}, ref ) => {
   const initialValidation = {
     isValid: true,
     msg: "",
   };
   const [isActive, setIsActive] = useState(false);
+  const [inpValue, setInpValue] = useState("");
   const [validation, setValidation] = useState(initialValidation);
   const {t} = useTranslation();
   const inputRef = useRef();
 
-  const handleFocus = () => {
+  const handleFocusBlur = () => {
     const inpValue = inputRef.current.value;
 
     // if input has a value, label should stay at top
@@ -42,21 +45,37 @@ const Input = ({
 
     if (isRequired){ validationResults.push(mandatoryValidate(inpValue))}
 
-    console.log(validationResults);
-
-    validationResults.forEach((result) => {
+    return validationResults.map((result) => {
       if (!result.isValid) {
         setValidation({...result, msg: t(result.msg)});
-        return;
       } else {
         setValidation(initialValidation)
       }
+      return result.isValid;
     });
   };
 
   useEffect(() => {
-    console.log("validation", validation );
+    setFormError((prevState) => {
+      return {
+        ...prevState,
+        [inpId]: !validation.isValid
+      }
+    })
+  // eslint-disable-next-line
   }, [validation]);
+
+  useImperativeHandle(
+    ref,() => {
+      return {
+        validateInp: () => {
+          return handleValidation(inpValue)
+        },
+        inpValue
+      }
+    }
+  );
+
 
   return (
     <div
@@ -73,14 +92,27 @@ const Input = ({
       <input
         className={`c-input__input ${inputClasses}`}
         placeholder={placeholder}
-        type={type}
+        type={type ===  "date" ? "text" : type}
         name={inpName}
         id={inpId}
-        onChange={onChange}
-        onFocus={handleFocus}
+        onChange={(e) => {
+          setInpValue(e.target.value)
+          onChange(e)
+        }}
+        onFocus={() => {
+          if (type === "date") {
+            inputRef.current.type='date'
+            inputRef.current.blur()
+            inputRef.current.focus()
+          }
+          handleFocusBlur()
+        }}
         onBlur={(e) => {
+          if (type === "date") {
+            inputRef.current.type='text'
+          }
             handleValidation(e.target.value)
-            handleFocus()
+            handleFocusBlur()
         }}
         autoCorrect={"off"}
         autoComplete="Off"
@@ -89,6 +121,7 @@ const Input = ({
         maxLength={maxLength}
         minLength={minLength}
         onKeyUp={(e) => handleValidation(e.target.value)}
+        value={inpValue}
       />
       {validation.isValid === false ? (
         <span className="c-input__error-msg">{validation.msg}</span>
@@ -97,4 +130,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export default React.forwardRef(Input);
