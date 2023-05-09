@@ -1,3 +1,6 @@
+.p-add {
+    padding: 0 3rem;
+}
 .p-add__header {
   display: flex;
   flex-direction: column;
@@ -23,4 +26,9 @@
   line-height: 3.8rem;
   text-align: center;
   color: var(--fc-secondary);
+}
+
+.p-add__form {
+    /* margin: auto;
+    max-width: 280px; */
 }

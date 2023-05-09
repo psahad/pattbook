@@ -19,7 +19,7 @@
 
 .c-input__label {
   position: absolute;
-  bottom: 0.6rem;
+  bottom: 0.4rem;
   font-size: 1.6rem;
   color: var(--fc-secondary);
   transition: all var(--motion-1-slow);
@@ -38,7 +38,7 @@
 
 .c-input__input {
   width: 100%;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.4rem;
   font-size: 1.6rem;
   font-weight: 400;
   color: var(--fc-primary);

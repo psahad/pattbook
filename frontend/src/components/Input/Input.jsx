@@ -1,21 +1,21 @@
-import React, {useEffect, useRef, useState} from "react";
+import {useRef, useState} from "react";
 import "./Input.css";
 import {mandatoryValidate} from "../../utils/validations";
 import useTranslation from "../../hooks/useTranslation";
 
 const Input = ({
-  label,
-  placeholder,
-  type,
-  onChange,
-  formControlClasses,
-  labelClasses,
-  inputClasses,
-  inpName,
-  inpId,
+  label = "",
+  placeholder = "",
+  type = "text",
+  onChange = () => {},
+  formControlClasses = "",
+  labelClasses = "",
+  inputClasses = "",
+  inpName = "",
+  inpId = "",
   isRequired = true,
-  maxLength,
-  minLength,
+  maxLength = "",
+  minLength = "",
 }) => {
   const initialValidation = {
     isValid: true,
