@@ -1,4 +1,4 @@
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import "./Input.css";
 import {mandatoryValidate} from "../../utils/validations";
 import useTranslation from "../../hooks/useTranslation";
@@ -13,7 +13,7 @@ const Input = ({
   inputClasses = "",
   inpName = "",
   inpId = "",
-  isRequired = true,
+  isRequired = false,
   maxLength = "",
   minLength = "",
 }) => {
@@ -38,7 +38,11 @@ const Input = ({
   };
 
   const handleValidation = (inpValue) => {
-    const validationResults = [mandatoryValidate(inpValue)];
+    let validationResults = [];
+
+    if (isRequired){ validationResults.push(mandatoryValidate(inpValue))}
+
+    console.log(validationResults);
 
     validationResults.forEach((result) => {
       if (!result.isValid) {
@@ -50,6 +54,10 @@ const Input = ({
     });
   };
 
+  useEffect(() => {
+    console.log("validation", validation );
+  }, [validation]);
+
   return (
     <div
       className={`c-input ${
@@ -58,7 +66,7 @@ const Input = ({
       ${!validation.isValid ? "c-input--error" : ""}
       ${formControlClasses}`}
     >
-      <label for={inpId} className={`c-input__label ${!validation.isValid ? "c-input__label--error" : ""} ${labelClasses}`}>
+      <label htmlFor={inpId} className={`c-input__label ${!validation.isValid ? "c-input__label--error" : ""} ${labelClasses}`}>
         {label}
         {isRequired ? " *" : ""}
       </label>
@@ -82,9 +90,9 @@ const Input = ({
         minLength={minLength}
         onKeyUp={(e) => handleValidation(e.target.value)}
       />
-      {!validation.isValid && (
+      {validation.isValid === false ? (
         <span className="c-input__error-msg">{validation.msg}</span>
-      )}
+      ) : ""}
     </div>
   );
 };
