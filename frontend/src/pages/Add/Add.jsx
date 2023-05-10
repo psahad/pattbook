@@ -1,16 +1,13 @@
-import {useEffect, useRef, useState} from "react";
-import {Tab, Input, Button} from "../../components";
+import {useEffect, useState} from "react";
+import {Tab} from "../../components";
 import useTranslation from "../../hooks/useTranslation";
 import useSwipeDetection from "../../hooks/useSwipeDetection";
+import FormLendAdd from "../../containers/FormLendAdd";
+import FormBorrowAdd from "../../containers/FormBorrowAdd";
 import "./Add.css";
 
 const Add = () => {
   const {t} = useTranslation();
-
-  const [formError, setFormError] = useState({
-    borrowerName: true,
-    amount: true,
-  });
   const {swipeDirection, swipeChangeTracker} = useSwipeDetection();
   const [activeTab, setActiveTab] = useState({
     tabIndex: 0,
@@ -26,13 +23,6 @@ const Add = () => {
       value: "borrowing",
     },
   ];
-  const borrowerNameInpRefObj = useRef();
-  const amountInpRefObj = useRef();
-
-  const inpRefObjs  = {
-    borrowerNameInpRefObj,
-    amountInpRefObj
-  }
 
   const onTabSwipe = (tabList, direction, activeTab, cb) => {
     if (
@@ -45,26 +35,6 @@ const Add = () => {
     const nextTab = tabList[nextIndex].value;
 
     onTabChange(nextTab, nextIndex);
-  };
-
-  const formValidator = () => {
-    let formIsValid = true;
-    Object.entries(inpRefObjs).forEach(([key, value]) => {
-      let inpValidationResult = value.current.validateInp()
-      inpValidationResult.forEach((res) => {
-        if (!inpValidationResult) {
-          formIsValid = false;
-        }
-      })
-    })
-
-    return formIsValid;
-  }
-  
-  const handleLendSubmit = (e) => {
-    e.preventDefault();
-    // formValidator()
-    console.log('formValidator()', formValidator());
   };
 
   useEffect(() => {
@@ -96,42 +66,10 @@ const Add = () => {
               : t("add.tab.borrowing.title")}
           </h3>
         </div>
-        <form className="p-add__form" onSubmit={handleLendSubmit}>
-          <Input
-            label={"Name of Borrower"}
-            type={"text"}
-            inpId={"borrowerName"}
-            isRequired="true"
-            setFormError={setFormError}
-            ref={borrowerNameInpRefObj}
-          />
-          <Input
-            label={"Amount"}
-            type={"number"}
-            inpId={"amount"}
-            isRequired="true"
-            setFormError={setFormError}
-            ref={amountInpRefObj}
-          />
-          <Input
-            label={"Purpose"}
-            type={"text"}
-            inpId={"purpose"}
-            maxLength="50"
-          />
-          <Input
-            label={"Expected Date of Return"}
-            type={"date"}
-            inpId={"returnDate"}
-          />
-          <Button
-            btnName={"Add"}
-            type={"submit"}
-            variant={"primary"}
-            btnWprClasses={"p-add__form__btn-submit"}
-            isDisabled={Object.entries(formError).find(([key, value]) => value === true)}
-          />
-        </form>
+        {activeTab.value === "lending"
+          ? <FormLendAdd />
+          : <FormBorrowAdd />}
+        
       </section>
     </div>
   );

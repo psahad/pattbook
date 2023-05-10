@@ -1,17 +1,17 @@
 .c-button__btn {
     width: 100%;
-    padding: 1.8rem 2.8rem;
+    padding: 1.6rem 2.8rem;
     border-radius: var(--br-primary);
     box-shadow: var(--shadow-card);
     font-size: 1.6rem;
     font-weight: 500;
 }
 
-.c-button__btn:disabled {
-    background-color: var(--fc-secondary);
-}
-
 .c-button__btn--primary {
     background-color: var(--clr-primary);
     color: var(--fc-btn-primary);
+}
+
+.c-button__btn:disabled {
+    background-color: var(--fc-secondary);
 }

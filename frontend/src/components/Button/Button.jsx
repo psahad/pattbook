@@ -1,6 +1,6 @@
 import "./Button.css"
 
-const Button = ({btnName, helperText, variant, type,btnWprClasses, btnClasses, isDisabled }) => {
+const Button = ({btnName, helperText, variant, type,btnWprClasses, btnClasses, isDisabled=false }) => {
 
   return (
     <div className={`c-button ${btnWprClasses}`} >

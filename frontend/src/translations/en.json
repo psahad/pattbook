@@ -21,6 +21,15 @@
             "borrowing": {
                 "label": "Borrowing",
                 "title": "Add a borrowing to your account"
+            },
+            "inputs": {
+                "lenderName": "Name of Lender",
+                "borrowerName": "Name of Borrower",
+                "amount": "Amount",
+                "purpose": "Purpose",
+                "returnDate": "Expected Date of Return",
+                "lenderSubmit": "Add",
+                "borrowerSubmit": "Add"
             }
         }
     },
