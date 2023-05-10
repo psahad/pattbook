@@ -1,10 +1,17 @@
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from "react-router-dom";
 import {Input, Button} from "../components";
 import useTranslation from "../hooks/useTranslation";
+import { useLocalStorage } from "../hooks/useStorage";
 
 const FormBorrowAdd = () => {
   const {t} = useTranslation();
+  const navigate = useNavigate();
+  const [logs, setLogs] = useLocalStorage("logs", [])
+  const parsedLogs = JSON.parse(logs)
 
+  const navigateListRef = useRef(false)
   const [formError, setFormError] = useState({
     lenderName: false,
     amount: false,
@@ -30,13 +37,36 @@ const FormBorrowAdd = () => {
     return formIsValid;
   };
 
-  const handleLendSubmit = (e) => {
+  const handleBorrowSubmit = (e) => {
     e.preventDefault();
-    // formValidator()
     console.log("formValidator()", formValidator());
+    if (!formValidator()) return
+    const payload = {
+      id: uuidv4(),
+      type: "borrow",
+      from: e.target["lenderName"].value,
+      to: "Sahad P",
+      amount: e.target["amount"].value,
+      purpose: e.target["purpose"].value,
+      expectedReturnDate: e.target["returnDate"].value,
+      isOpen: true,
+      closedAt: null, 
+      createdAt: new Date().toLocaleString()
+    }
+    parsedLogs.push(payload)
+    setLogs(JSON.stringify(parsedLogs))
+    navigateListRef.current = true;
   };
+
+  useEffect(() => {
+    if (navigateListRef.current) {
+      navigate("/list")
+    }
+    // eslint-disable-next-line
+  }, [logs]);
+
   return (
-    <form className="p-add__form" onSubmit={handleLendSubmit}>
+    <form className="p-add__form" onSubmit={handleBorrowSubmit}>
       <Input
         label={t("add.tab.inputs.lenderName")}
         type={"text"}
