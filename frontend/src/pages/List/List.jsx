@@ -3,10 +3,14 @@ import {FlatCard, Tab} from "../../components";
 import useTranslation from "../../hooks/useTranslation";
 import useSwipeDetection from "../../hooks/useSwipeDetection";
 import {all, lend, borrow} from "../../dummyData/list";
+import { useLocalStorage } from "../../hooks/useStorage";
 import "./List.css";
 
 const List = () => {
   const {t} = useTranslation();
+  const [logs] = useLocalStorage("logs", []);
+  const parsedLogs = logs ? JSON.parse(logs) : []
+
   const {swipeDirection, swipeChangeTracker} = useSwipeDetection();
   const [transactionItems, setTransactItems] = useState(all);
   const [activeTab, setActiveTab] = useState({
@@ -56,7 +60,7 @@ const List = () => {
     <div className="page p-list">
       <Tab tabs={listTabs} activeTab={activeTab} onTabChange={onTabChange} />
       <section className="p-list__flatcard-container page-section">
-        {transactionItems.map((item) => {
+        {parsedLogs.reverse().map((item) => {
           return <FlatCard item={item} key={item.id} />;
         })}
       </section>

@@ -9,7 +9,7 @@ const FormLendAdd = () => {
   const {t} = useTranslation();
   const navigate = useNavigate();
   const [logs, setLogs] = useLocalStorage("logs", []);
-  const parsedLogs = JSON.parse(logs)
+  const parsedLogs = logs ? JSON.parse(logs) : []
 
   const navigateListRef = useRef(false)
   const [formError, setFormError] = useState({
