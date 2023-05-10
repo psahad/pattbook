@@ -2,17 +2,18 @@ import React, {useEffect, useState} from "react";
 import {FlatCard, Tab} from "../../components";
 import useTranslation from "../../hooks/useTranslation";
 import useSwipeDetection from "../../hooks/useSwipeDetection";
-import {all, lend, borrow} from "../../dummyData/list";
+// import {all, lend, borrow} from "../../dummyData/list";
 import { useLocalStorage } from "../../hooks/useStorage";
 import "./List.css";
 
 const List = () => {
   const {t} = useTranslation();
-  const [logs] = useLocalStorage("logs", []);
-  const parsedLogs = logs ? JSON.parse(logs) : []
+  const [logs] = useLocalStorage("logs", "[]");
+  const parsedLogs = logs ? JSON.parse(logs) : [];
+  // const parsedLogs = (logs && logs instanceof String) ? JSON.parse(logs) : [];
 
   const {swipeDirection, swipeChangeTracker} = useSwipeDetection();
-  const [transactionItems, setTransactItems] = useState(all);
+  const [transactionItems, setTransactItems] = useState(parsedLogs);
   const [activeTab, setActiveTab] = useState({
     tabIndex: 0,
     value: "all"
@@ -31,14 +32,23 @@ const List = () => {
       value: "borrow",
     },
   ];
-  const dummyTransactItems = {all, lend, borrow};
+  // const dummyTransactItems = {all, lend, borrow};
+
+  const filterArray = (array, filter, key) => {
+    return array.filter((item) => item[key] === filter)
+  }
+  
 
   const onTabChange = (activeTab, activeTabIndex) => {
     setActiveTab({
       tabIndex: activeTabIndex,
       value: activeTab
     })
-    setTransactItems(dummyTransactItems[activeTab]);
+    if (activeTab === "all") {
+      setTransactItems(parsedLogs)
+    } else {
+      setTransactItems(filterArray(parsedLogs, activeTab, "type"))
+    }
   };
 
   const onTabSwipe = (tabList, direction, activeTab, cb) => {
@@ -60,7 +70,7 @@ const List = () => {
     <div className="page p-list">
       <Tab tabs={listTabs} activeTab={activeTab} onTabChange={onTabChange} />
       <section className="p-list__flatcard-container page-section">
-        {parsedLogs.reverse().map((item) => {
+        {transactionItems.reverse().map((item) => {
           return <FlatCard item={item} key={item.id} />;
         })}
       </section>

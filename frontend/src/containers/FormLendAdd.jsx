@@ -8,7 +8,7 @@ import { useLocalStorage } from "../hooks/useStorage";
 const FormLendAdd = () => {
   const {t} = useTranslation();
   const navigate = useNavigate();
-  const [logs, setLogs] = useLocalStorage("logs", []);
+  const [logs, setLogs] = useLocalStorage("logs", "[]");
   const parsedLogs = logs ? JSON.parse(logs) : []
 
   const navigateListRef = useRef(false)
