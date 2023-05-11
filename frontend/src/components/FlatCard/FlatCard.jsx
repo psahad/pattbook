@@ -1,8 +1,10 @@
+import useTranslation from "../../hooks/useTranslation";
 import { formatDate } from "../../utils/formatter";
 import "./FlatCard.css"
 import { Link } from "react-router-dom";
 
 const FlatCard = ({item}) => {
+  const {t} = useTranslation();
   
   return (
     <Link to={item.id} state={{ item }} className={`c-flatcard ${!item.isOpen ? 'c-flatcard--closed' : item.type === 'lend' ? 'c-flatcard--lend' : 'c-flatcard--borrow'}`}>
@@ -19,13 +21,13 @@ const FlatCard = ({item}) => {
         {/* <span className='c-flatcard__date ff-montserrat'>{item.paidDate ? item.paidDate : "-"}</span> */}
         {item.isOpen ? (
             <>
-              <span className='c-flatcard__date ff-montserrat'>{"Return expected on: "}</span>
+              <span className='c-flatcard__date ff-montserrat'>{t("add.tab.inputs.returnDate")}</span>
               <span className='c-flatcard__date ff-montserrat'>{item.expectedReturnDate ? formatDate(item.expectedReturnDate) : "N/A"}</span>
             </>
           )
           : (
             <>
-              <span className='c-flatcard__date ff-montserrat'>{"Closed on: "}</span>
+              <span className='c-flatcard__date ff-montserrat'>{t("add.tab.inputs.closedOn")}</span>
               <span className='c-flatcard__date ff-montserrat'>{item.closedAt ? formatDate(item.closedAt) : "N/A"}</span>
             </>
           )

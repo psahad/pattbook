@@ -3,10 +3,13 @@ import {useLocation, useNavigate} from "react-router-dom";
 import "./Details.css";
 import {Button, DetailCard} from "../../components";
 import {useLocalStorage} from "../../hooks/useStorage";
+import useTranslation from "../../hooks/useTranslation";
+import { formatDate } from "../../utils/formatter";
 
 const Details = () => {
   const navigateListRef = useRef(false);
 
+  const {t} = useTranslation();
   const navigate = useNavigate();
   const [logs, setLogs] = useLocalStorage("logs", "[]");
   const parsedLogs = logs ? JSON.parse(logs) : [];
@@ -38,24 +41,24 @@ const Details = () => {
     <div className="page p-details">
       <div className="p-details__details-wpr">
         {item.type === "lend" ? (
-          <DetailCard label={"Name of Borrower"} value={item.to} />
+          <DetailCard label={t("add.tab.inputs.borrowerName")} value={item.to} />
         ) : (
-          <DetailCard label={"Name of Lender"} value={item.from} />
+          <DetailCard label={t("add.tab.inputs.lenderName")} value={item.from} />
         )}
-        <DetailCard label={"Amount"} value={item.amount} isAmount />
+        <DetailCard label={t("add.tab.inputs.amount")} value={item.amount} isAmount />
         <DetailCard
-          label={"Purpose"}
-          value={item.purpose ? item.purpose : "-"}
+          label={t("add.tab.inputs.purpose")}
+          value={item.purpose ? item.purpose : "N/A"}
         />
-        <DetailCard label={"Status"} value={item.isOpen ? "Open" : "Closed"} />
+        <DetailCard label={t("add.tab.inputs.status")} value={item.isOpen ? t("add.tab.inputs.open") : t("add.tab.inputs.closed")} />
         {!item.isOpen && (
-          <DetailCard label={"Closed on"} value={item.closedAt} />
+          <DetailCard label={t("add.tab.inputs.closedOn")} value={formatDate(item.closedAt)} />
         )}
-        <DetailCard label={"Created on"} value={item.createdAt} />
+        <DetailCard label={t("add.tab.inputs.createdOn")} value={formatDate(item.createdAt, true)} />
         {item.isOpen && (
           <Button
             // btnName={t("add.tab.inputs.borrowerSubmit")}
-            btnName={"Close"}
+            btnName={t("add.tab.inputs.closeButton")}
             type={"button"}
             variant={"secondary"}
             btnWprClasses={"p-details__btn-close"}

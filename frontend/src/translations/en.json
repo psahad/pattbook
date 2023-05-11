@@ -12,6 +12,9 @@
             "borrower": "Borrower"
         }
     },
+    "details": {
+
+    },
     "add": {
         "tab": {
             "lending": {
@@ -27,9 +30,15 @@
                 "borrowerName": "Name of Borrower",
                 "amount": "Amount",
                 "purpose": "Purpose",
-                "returnDate": "Expected Date of Return",
+                "returnDate": "Return expected on",
                 "lenderSubmit": "Add",
-                "borrowerSubmit": "Add"
+                "borrowerSubmit": "Add",
+                "closedOn": "Closed on",
+                "createdOn": "Created on",
+                "closeButton": "Close",
+                "status": "Status",
+                "open": "Open",
+                "closed": "Closed"
             }
         }
     },
