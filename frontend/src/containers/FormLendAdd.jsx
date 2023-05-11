@@ -59,7 +59,6 @@ const FormLendAdd = () => {
   };
 
   useEffect(() => {
-    console.log(logs);
     if (navigateListRef.current) {
       navigate("/list")
     }

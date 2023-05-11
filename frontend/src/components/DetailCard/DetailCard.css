@@ -1,0 +1,20 @@
+.c-detailcard {
+    margin-bottom: 0.1rem;
+    padding: 1.6rem 2rem;
+    border-radius: var(--br-primary);
+    background-color: var(--bg-detailcard);
+    box-shadow: var(--shadow-card);
+}
+
+.c-detailcard__label {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+    color: var(--fc-secondary);
+}
+
+.c-detailcard__value {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--fc-primary);
+}
