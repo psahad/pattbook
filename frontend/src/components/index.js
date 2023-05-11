@@ -5,6 +5,7 @@ import Input from "./Input/Input";
 import Button from "./Button/Button";
 import DetailCard from "./DetailCard/DetailCard";
 import { OverviewCard } from "./OverviewCard/OverviewCard";
+import { ChartDoughnut } from "./ChartDoughnut/ChartDoughnut";
 
 export {
     Header,
@@ -13,5 +14,6 @@ export {
     Input,
     Button,
     DetailCard,
-    OverviewCard
+    OverviewCard,
+    ChartDoughnut
 }

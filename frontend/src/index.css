@@ -75,6 +75,8 @@
 
 
   /* flatcard */
+  /* --bg-flatcard-green: rgba(0, 226, 109, 0.8); */
+  /* --bg-flatcard-red: rgba(227, 1, 76, 0.8); */
   --bg-flatcard-green: rgba(0, 255, 42, 0.204);
   --bg-flatcard-red: rgba(255, 0, 25, 0.12);
   --bg-flatcard-grey: rgba(174, 174, 174, 0.24);
