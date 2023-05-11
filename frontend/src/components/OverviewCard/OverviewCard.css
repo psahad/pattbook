@@ -1,0 +1,26 @@
+.c-overviewcard {
+    margin-bottom: 0.1rem;
+    padding: 1.6rem 2rem;
+    border-radius: var(--br-primary);
+    background-color: var(--bg-detailcard);
+    box-shadow: var(--shadow-card);
+}
+
+.c-overviewcard__wpr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.c-overviewcard__title, .c-overviewcard__wpr__right {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--fc-primary);
+}
+
+.c-overviewcard__sub-title {
+    margin-top: 0.6rem;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--fc-secondary);
+}

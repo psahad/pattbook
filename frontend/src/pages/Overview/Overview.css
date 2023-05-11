@@ -1,0 +1,7 @@
+.p-overview {
+    padding: 3.8rem 2rem;
+}
+
+.p-overview__section > *:not(:first-child) {
+    margin-top: 1rem;
+}

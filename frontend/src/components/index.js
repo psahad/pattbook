@@ -4,6 +4,7 @@ import FlatCard from "./FlatCard/FlatCard";
 import Input from "./Input/Input";
 import Button from "./Button/Button";
 import DetailCard from "./DetailCard/DetailCard";
+import { OverviewCard } from "./OverviewCard/OverviewCard";
 
 export {
     Header,
@@ -11,5 +12,6 @@ export {
     FlatCard,
     Input,
     Button,
-    DetailCard
+    DetailCard,
+    OverviewCard
 }
