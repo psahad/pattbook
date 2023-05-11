@@ -9,8 +9,10 @@ const Overview = () => {
   
   const totalOpenLending = calcTotal(multiFilterArray(parsedLogs, {type: "lend", isOpen: true }), "amount")
   const totalOpenBorrowing = calcTotal(multiFilterArray(parsedLogs, {type: "borrow", isOpen: true }), "amount")
+  const totalLending = calcTotal(filterArray(parsedLogs, "type", "lend"), "amount")
+  const totalBorrowing = calcTotal(filterArray(parsedLogs, "type", "borrow"), "amount")
 
-  const data = {
+  const totalOpenData = {
     labels: ['Total Open Lending', 'Total Open Borrowing'],
     datasets: [
       {
@@ -27,11 +29,28 @@ const Overview = () => {
     ],
   };
 
+  const totalData = {
+    labels: ['Total Lending', 'Total Borrowing'],
+    datasets: [
+      {
+        label: 'Amount in Rs',
+        data: [totalLending, totalBorrowing],
+        backgroundColor: [
+          'rgba(0, 226, 109, 0.9)',
+          'rgba(227, 1, 76, 0.9)',
+        ],
+        borderWidth: 0,
+        hoverOffset: 10,
+        spacing: 2, 
+      },
+    ],
+  };
+
   return (
     <div className="page p-overview">
       <section className="p-overview__section">
         <div className="p-overview__chart-wpr">
-          <ChartDoughnut data={data} />
+          <ChartDoughnut data={totalOpenData} />
         </div>
         <OverviewCard
           title={"Total open lendings"}
@@ -45,6 +64,9 @@ const Overview = () => {
         />
       </section>
       <section className="p-overview__section">
+        <div className="p-overview__chart-wpr">
+          <ChartDoughnut data={totalData} />
+        </div>
         <OverviewCard
           title={"Total lendings"}
           amount={calcTotal(filterArray(parsedLogs, "type", "lend"), "amount")}
