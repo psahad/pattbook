@@ -1,3 +1,4 @@
+import { formatDate } from "../../utils/formatter";
 import "./FlatCard.css"
 import { Link } from "react-router-dom";
 
@@ -14,9 +15,21 @@ const FlatCard = ({item}) => {
           <h1 className='c-flatcard__amount'> &#8377; {item.amount}</h1>
         </div>
       </div>
-      <div  className="c-flatcard__bottom-section">
+      <div className="c-flatcard__bottom-section">
         {/* <span className='c-flatcard__date ff-montserrat'>{item.paidDate ? item.paidDate : "-"}</span> */}
-        <span className='c-flatcard__date ff-montserrat'>{item.expectedReturnDate ? item.expectedReturnDate : "-"}</span>
+        {item.isOpen ? (
+            <>
+              <span className='c-flatcard__date ff-montserrat'>{"Return expected on: "}</span>
+              <span className='c-flatcard__date ff-montserrat'>{item.expectedReturnDate ? formatDate(item.expectedReturnDate) : "N/A"}</span>
+            </>
+          )
+          : (
+            <>
+              <span className='c-flatcard__date ff-montserrat'>{"Closed on: "}</span>
+              <span className='c-flatcard__date ff-montserrat'>{item.closedAt ? formatDate(item.closedAt) : "N/A"}</span>
+            </>
+          )
+        }
         {/* <span className='c-flatcard__date ff-montserrat'>{item.isClosed ? item.closedDate : item.expectedClosingDate ? item.expectedClosingDate : "-"}</span> */}
       </div>
     </Link>

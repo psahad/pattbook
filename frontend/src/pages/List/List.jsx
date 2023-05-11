@@ -9,7 +9,7 @@ import "./List.css";
 const List = () => {
   const {t} = useTranslation();
   const [logs] = useLocalStorage("logs", "[]");
-  const parsedLogs = logs ? JSON.parse(logs) : [];
+  const parsedLogs = logs ? JSON.parse(logs).reverse() : [];
   // const parsedLogs = (logs && logs instanceof String) ? JSON.parse(logs) : [];
 
   const {swipeDirection, swipeChangeTracker} = useSwipeDetection();
@@ -70,7 +70,7 @@ const List = () => {
     <div className="page p-list">
       <Tab tabs={listTabs} activeTab={activeTab} onTabChange={onTabChange} />
       <section className="p-list__flatcard-container page-section">
-        {transactionItems.reverse().map((item) => {
+        {transactionItems.map((item) => {
           return <FlatCard item={item} key={item.id} />;
         })}
       </section>
