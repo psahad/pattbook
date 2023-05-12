@@ -18,6 +18,13 @@
     color: var(--fc-primary);
 }
 
+.c-overviewcard__wpr__right--green {
+    color: var(--fc-chart-green);
+}
+.c-overviewcard__wpr__right--red {
+    color: var(--fc-chart-red);
+}
+
 .c-overviewcard__sub-title {
     margin-top: 0.6rem;
     font-size: 1.1rem;

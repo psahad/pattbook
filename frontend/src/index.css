@@ -74,15 +74,19 @@
   --icon-stroke: #939B9E;
 
 
-  /* flatcard */
-  /* --bg-flatcard-green: rgba(0, 226, 109, 0.8); */
-  /* --bg-flatcard-red: rgba(227, 1, 76, 0.8); */
+  /* Flat Card*/
   --bg-flatcard-green: rgba(0, 255, 42, 0.204);
   --bg-flatcard-red: rgba(255, 0, 25, 0.12);
   --bg-flatcard-grey: rgba(174, 174, 174, 0.24);
 
   /* Details Card */
   --bg-detailcard: #fff;
+
+  /* Chart */
+  --bg-chart-green: rgba(0, 210, 101, 0.8);
+  --bg-chart-red: rgba(227, 1, 76, 0.8);
+  --fc-chart-green: rgb(0, 210, 101);
+  --fc-chart-red: rgba(227, 1, 76, 1);
 
   /* Button */
   --fc-btn-primary: #fff;
@@ -125,13 +129,17 @@ body.theme-dark-green {
   /* header icon */
   --icon-stroke: #84959E;
 
-  /* flatcard */
+  /* Flat Card*/
   --bg-flatcard-green: rgba(0, 255, 42, 0.25);
   --bg-flatcard-red: rgba(255, 0, 25, 0.216);
   --bg-flatcard-grey: rgba(152, 152, 152, 0.25);
 
     /* Details Card */
     --bg-detailcard: #3B444B;
+
+    /* Chart */
+  --fc-chart-green: rgb(2, 232, 113);
+  --fc-chart-red: rgb(255, 16, 96);
 
 }
 

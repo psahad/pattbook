@@ -56,11 +56,13 @@ const Overview = () => {
           title={"Total open lendings"}
           subTitle={"Money to get"}
           amount={totalOpenLending}
+          variant={"green"}
         />
         <OverviewCard
           title={"Total open borrowings"}
           subTitle={"Money to give"}
           amount={totalOpenBorrowing}
+          variant={"red"}
         />
       </section>
       <section className="p-overview__section">
@@ -69,11 +71,13 @@ const Overview = () => {
         </div>
         <OverviewCard
           title={"Total lendings"}
-          amount={calcTotal(filterArray(parsedLogs, "type", "lend"), "amount")}
+          amount={totalLending}
+          variant={"green"}
         />
         <OverviewCard
           title={"Total borrowings"}
-          amount={calcTotal(filterArray(parsedLogs, "type", "borrow"), "amount")}
+          amount={totalBorrowing}
+          variant={"red"}
         />
       </section>   
     </div>

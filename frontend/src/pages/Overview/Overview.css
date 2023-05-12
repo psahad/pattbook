@@ -8,11 +8,11 @@
 }
 
 .p-overview__section > *:not(:first-child) {
-    margin-top: 1rem;
+    margin-top: 0.6rem;
 }
 
 .p-overview__chart-wpr {
-    max-width: 28rem;
+    max-width: 25rem;
     margin: auto;
     margin-bottom: 2rem;
 }
