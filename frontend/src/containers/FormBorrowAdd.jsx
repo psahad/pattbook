@@ -28,7 +28,7 @@ const FormBorrowAdd = () => {
     Object.entries(inpRefObjs).forEach(([key, value]) => {
       let inpValidationResult = value.current.validateInp();
       inpValidationResult.forEach((res) => {
-        if (!inpValidationResult) {
+        if (!res) {
           formIsValid = false;
         }
       });

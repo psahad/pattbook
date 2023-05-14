@@ -26,5 +26,6 @@
 
 .c-button__btn:disabled {
     background-color: var(--fc-secondary);
-    border-color:var(--clr-primary);
+    border-color: var(--fc-secondary);
+    /* border-color:var(--clr-primary); */
 }

@@ -25,10 +25,11 @@ const FormLendAdd = () => {
   };
   const formValidator = () => {
     let formIsValid = true;
+
     Object.entries(inpRefObjs).forEach(([key, value]) => {
       let inpValidationResult = value.current.validateInp();
       inpValidationResult.forEach((res) => {
-        if (!inpValidationResult) {
+        if (!res) {
           formIsValid = false;
         }
       });
@@ -39,8 +40,9 @@ const FormLendAdd = () => {
 
   const handleLendSubmit = (e) => {
     e.preventDefault();
-    console.log("formValidator()", formValidator());
-    if (!formValidator()) return;
+    const formValidationResult = formValidator();
+    console.log("formValidator()", formValidationResult);
+    if (!formValidationResult) return;
     const payload = {
       id: uuidv4(),
       type: "lend",
