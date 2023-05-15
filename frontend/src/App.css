@@ -51,3 +51,11 @@
 .inp-radio:checked + label {
   color: var(--clr-primary);
 }
+
+/* Icon */
+.icon__fill-fc-primary, .icon__fill-fc-primary > * {
+  fill: var(--fc-primary)
+}
+.icon__stroke-fc-primary, .icon__stroke-fc-primary > * {
+  stroke: var(--fc-primary)
+}
