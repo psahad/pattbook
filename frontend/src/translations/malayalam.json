@@ -48,7 +48,7 @@
     "profile": {
         "menus": {
             "fontSize": {
-                "label": "Font Size",
+                "label": "അക്ഷര വലിപ്പം",
                 "modal": {
                     "title": "Choose a font size",
                     "btnPrimary": "Save",

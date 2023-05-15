@@ -1,4 +1,4 @@
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {Chooser} from "../../components";
 import {useLocalStorage} from "../../hooks/useStorage";
 import {capitalizeFirstLetter} from "../../utils/formatter";
@@ -9,8 +9,6 @@ import { SETTINGS } from "../../constants/constants";
 const initialSettings = SETTINGS;
 
 const Profile = () => {
-  const [selectedFs, setSelectedFs] = useState(initialSettings.fontSize);
-  const [selectedLang, setSelectedLang] = useState(initialSettings.language);
   const formFsRef = useRef();
   const formLangRef = useRef();
 
@@ -20,6 +18,9 @@ const Profile = () => {
     JSON.stringify(initialSettings)
   );
   const parsedSettings = settings ? JSON.parse(settings) : initialSettings;
+
+  const [selectedFs, setSelectedFs] = useState(parsedSettings?.fontSize ?? initialSettings.fontSize);
+  const [selectedLang, setSelectedLang] = useState(parsedSettings?.language ?? initialSettings.language);
 
   // for font size
   const handleFsChange = (event) => {
@@ -48,6 +49,7 @@ const Profile = () => {
   const onClickSaveLang = () => {
     setSettings(JSON.stringify({...parsedSettings, language: selectedLang}));
     formLangRef.current.submit();
+    window.location.reload();
   };
 
   // const handleThemeChange = () => {
@@ -59,23 +61,30 @@ const Profile = () => {
   // };
 
   const changeHTMLFs = (fontSize) => {
-    let fontSizeInPX = 10;
+    // let fontSizeInPX = 10;
     switch (fontSize) {
       case "small":
-        fontSizeInPX = 8;
+        // fontSizeInPX = 8;
+        document.documentElement.className = "small"
         break;
       case "normal":
-        fontSizeInPX = 10;
+        // fontSizeInPX = 10;
+        document.documentElement.className = ""
         break;
       case "large":
-        fontSizeInPX = 12;
+        // fontSizeInPX = 12;
+        document.documentElement.className = "large"
         break;
 
       default:
         break;
     }
-    document.documentElement.style.fontSize = fontSizeInPX + "px";
+    // document.documentElement.style.fontSize = fontSizeInPX + "px";
   };
+
+  useEffect(() => {
+    console.log(selectedLang);
+  }, [selectedLang]);
 
   return (
     <div className="page p-profile">
