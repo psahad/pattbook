@@ -2,7 +2,10 @@ import {forwardRef, useImperativeHandle, useRef} from "react";
 import "./Modal.css";
 import Button from "../Button/Button";
 
-const Modal = ({children, title, btnClose = "Close", handleBtnPrimary}, ref) => {
+const Modal = (
+  {children, title, btnSecondary = "Close", btnPrimary, handleBtnPrimary, handleBtnSecondary},
+  ref
+) => {
   const modalRef = useRef();
 
   const handleOpen = () => {
@@ -23,16 +26,19 @@ const Modal = ({children, title, btnClose = "Close", handleBtnPrimary}, ref) => 
       <h1 className="c-modal__title">{title}</h1>
       <div className="c-modal__content">{children}</div>
       <div className="c-modal__footer">
-        {/* <button className="c-modal__btn-secondary" onClick={handleClose}>{btnClose}</button> */}
+        {/* <button className="c-modal__btn-secondary" onClick={handleClose}>{btnSecondary}</button> */}
         <Button
-          btnName={btnClose}
+          btnName={btnSecondary}
           type={"button"}
           variant={"secondary-sm"}
           btnWprClasses={"c-modal__btn c-modal__btn-secondary"}
-          handleClick={handleClose}
+          handleClick={() => {
+            handleBtnSecondary();
+            handleClose();
+          }}
         />
         <Button
-          btnName={"Save"}
+          btnName={btnPrimary}
           type={"button"}
           variant={"primary-sm"}
           btnWprClasses={"c-modal__btn c-modal__btn-primary"}

@@ -9,9 +9,8 @@ export const Chooser = ({
   modalTitle,
   btnPrimary,
   btnSecondary,
-  btnClose,
   onClickBtnPrimary,
-  handleBtnSecondary,
+  onClickBtnSecondary,
   selectedValue
 }) => {
   const modalRefObj = useRef()
@@ -33,7 +32,14 @@ export const Chooser = ({
           </span>
         </div>
       </button>
-      <Modal ref={modalRefObj} title={modalTitle} btnClose={btnClose} handleBtnPrimary={onClickBtnPrimary}>
+      <Modal 
+        ref={modalRefObj} 
+        title={modalTitle} 
+        btnPrimary={btnPrimary} 
+        btnSecondary={btnSecondary} 
+        handleBtnPrimary={onClickBtnPrimary}
+        handleBtnSecondary={onClickBtnSecondary}
+      >
         {children}
       </Modal>
     </div>
