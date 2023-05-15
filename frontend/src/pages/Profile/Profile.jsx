@@ -1,8 +1,9 @@
 import { useRef, useState } from "react";
 import {Chooser} from "../../components";
-import "./Profile.css";
 import { useLocalStorage } from "../../hooks/useStorage";
 import { capitalizeFirstLetter } from "../../utils/formatter";
+import "./Profile.css";
+import useTranslation from "../../hooks/useTranslation";
 
 const initialSettings = {
   fontSize: "normal",
@@ -13,6 +14,7 @@ const Profile = () => {
   const [selectedFs, setSelectedFs] = useState(initialSettings.fontSize);
   const formFsRef = useRef();
   
+  const {t} = useTranslation();
   const [settings, setSettings] = useLocalStorage("settings", JSON.stringify(initialSettings))
   const parsedSettings = settings ? JSON.parse(settings) : initialSettings
   
@@ -40,7 +42,6 @@ const Profile = () => {
 
   const changeHTMLFs = (fontSize) => {
     let fontSizeInPX = 10;
-    console.log("fontSize", fontSize);
     switch (fontSize) {
       case "small":
          fontSizeInPX = 8;
@@ -66,10 +67,10 @@ const Profile = () => {
       <section className="p-profile__section p-profile__section-settings">
         <Chooser
           icon={iconFontSize}
-          chooserName={"Font Size"}
-          modalTitle={"Choose a font Size"}
-          btnPrimary="Save"
-          btnSecondary="Close"
+          chooserName={t("profile.menus.fontSize.label")}
+          modalTitle={t("profile.menus.fontSize.modal.title")}
+          btnPrimary={t("profile.menus.fontSize.modal.btnPrimary")}
+          btnSecondary={t("profile.menus.fontSize.modal.btnSecondary")}
           onClickBtnPrimary={onClickSaveFs}
           onClickBtnSecondary={handleFsFormReset}
           selectedValue={capitalizeFirstLetter(parsedSettings.fontSize)}
@@ -78,18 +79,15 @@ const Profile = () => {
             <ul className="p-profile__section__fs-inp-wpr">
               <li className="p-profile__section__fs-inp-item">
                 <input type="radio" className="inp-radio" name="fontSize" id="fs-small" value={"small"} onChange={handleFsChange} checked={selectedFs === 'small'} />
-                {/* <input type="radio" className="inp-radio" name="fontSize" id="fs-small" value={"small"} onChange={handleFsChange} checked={selectedFs === 'small'}  defaultChecked={parsedSettings.fontSize === 'small'} /> */}
-                <label className="label-radio" htmlFor="fs-small">{"Small"}</label>
+                <label className="label-radio" htmlFor="fs-small">{t("profile.menus.fontSize.options.small")}</label>
               </li>
               <li className="p-profile__section__fs-inp-item">
                 <input type="radio" className="inp-radio" name="fontSize" id="fs-normal" value={"normal"} onChange={handleFsChange} checked={selectedFs === 'normal'} />
-                {/* <input type="radio" className="inp-radio" name="fontSize" id="fs-normal" value={"normal"} onChange={handleFsChange} checked={selectedFs === 'normal'} defaultChecked={parsedSettings.fontSize === 'normal'}/> */}
-                <label className="label-radio" htmlFor="fs-normal">{"Normal"}</label>
+                <label className="label-radio" htmlFor="fs-normal">{t("profile.menus.fontSize.options.normal")}</label>
               </li>
               <li className="p-profile__section__fs-inp-item">
                 <input type="radio" className="inp-radio" name="fontSize" id="fs-large" value={"large"} onChange={handleFsChange} checked={selectedFs === 'large'} />
-                {/* <input type="radio" className="inp-radio" name="fontSize" id="fs-large" value={"large"} onChange={handleFsChange} checked={selectedFs === 'large'} defaultChecked={parsedSettings.fontSize === 'large'}/> */}
-                <label className="label-radio" htmlFor="fs-large">{"Large"}</label>
+                <label className="label-radio" htmlFor="fs-large">{t("profile.menus.fontSize.options.large")}</label>
               </li>
             </ul>
           </form>

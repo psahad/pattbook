@@ -44,5 +44,22 @@
     },
     "validations": {
         "mandatory": "This field is mandatory"
+    },
+    "profile": {
+        "menus": {
+            "fontSize": {
+                "label": "Font Size",
+                "modal": {
+                    "title": "Choose a Font Size",
+                    "btnPrimary": "Save",
+                    "btnSecondary": "Close"
+                },
+                "options": {
+                    "small": "Small",
+                    "normal": "Normal",
+                    "large": "Large"
+                }
+            }
+        }
     }
 }
