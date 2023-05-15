@@ -77,6 +77,24 @@
                         "value": "malayalam"
                     }
                 }
+            },
+            "theme": {
+                "label": "Theme",
+                "modal": {
+                    "title": "Choose a theme",
+                    "btnPrimary": "Save",
+                    "btnSecondary": "Close"
+                },
+                "options": {
+                    "bluishLight": {
+                        "label": "Bluish Light",
+                        "value": "bluish-light"
+                    },
+                    "bluishDark": {
+                        "label": "Bluish Dark",
+                        "value": "bluish-dark"
+                    }
+                }
             }
         }
     }

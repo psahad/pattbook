@@ -1,5 +1,5 @@
 export const SETTINGS = {
   fontSize: "normal",
-  theme: "primaryLight",
+  theme: "bluish-light",
   language: "english",
 };
