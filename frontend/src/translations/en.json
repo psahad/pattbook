@@ -50,7 +50,7 @@
             "fontSize": {
                 "label": "Font Size",
                 "modal": {
-                    "title": "Choose a Font Size",
+                    "title": "Choose a font size",
                     "btnPrimary": "Save",
                     "btnSecondary": "Close"
                 },
@@ -58,6 +58,24 @@
                     "small": "Small",
                     "normal": "Normal",
                     "large": "Large"
+                }
+            },
+            "language": {
+                "label": "Language",
+                "modal": {
+                    "title": "Choose a language",
+                    "btnPrimary": "Save",
+                    "btnSecondary": "Close"
+                },
+                "options": {
+                    "english": {
+                        "label": "English",
+                        "value": "english"
+                    },
+                    "malayalam": {
+                        "label": "മലയാളം",
+                        "value": "malayalam"
+                    }
                 }
             }
         }
