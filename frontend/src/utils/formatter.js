@@ -17,3 +17,7 @@ export function formatDate(dateString, includeTime = false) {
   const date = new Date(dateString);
   return date.toLocaleString("en-GB", options);
 }
+
+export function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}

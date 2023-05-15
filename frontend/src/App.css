@@ -16,3 +16,38 @@
 .ff-montserrat {
   font-family: var(--ff-montserrat);
 }
+
+/* ::::::: Input ::::::::: */
+/* radio */
+.label-radio {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--fc-primary);
+}
+.inp-radio {
+  appearance: auto;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 1.4rem;
+  border: 1px solid #aaa;
+  cursor: pointer;
+}
+
+.inp-radio:not(:first-child) {
+  margin-top: 1.4rem;
+}
+
+.inp-radio:checked {
+  border: 1px solid var(--clr-primary);
+  background-color: var(--clr-primary);
+  /* accent-color: var(--clr-primary); */
+  /* accent-color: rgb(0, 255, 0); */
+}
+
+.inp-radio:checked + label {
+  color: var(--clr-primary);
+}

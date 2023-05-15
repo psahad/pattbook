@@ -1,0 +1,42 @@
+.c-modal {
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    min-width: 25rem;
+    width: 80%;
+    padding: 2.2rem 2.4rem;
+    box-shadow: var(--shadow-card);
+    border-radius: var(--br-primary);
+    background-color: var(--bg-primary);
+}
+
+.c-modal::backdrop {
+    background-color: rgba(0,0,0,0.4);
+}
+
+.c-modal__title {
+    margin-bottom: 2.8rem;
+    font-weight: 300;
+    font-size: 2rem;
+    color: var(--fc-secondary);
+}
+
+.c-modal > * input[type=radio] {
+    margin-right: 1.4rem;
+}
+
+.c-modal__footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3.4rem;
+    
+}
+
+.c-modal__footer > *:not(:first-child) {
+    margin-left: 1rem;
+}
+
+.c-modal__btn {
+    width: fit-content !important;
+    min-width: 8rem;
+}

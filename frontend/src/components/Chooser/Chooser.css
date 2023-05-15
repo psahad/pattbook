@@ -1,0 +1,42 @@
+.c-chooser__chooser-btn-wpr {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.4rem;
+    margin-bottom: 0.1rem;
+    padding: 1.6rem 2rem;
+    border-radius: var(--br-primary);
+    background-color: var(--bg-detailcard);
+    box-shadow: var(--shadow-card);
+}
+
+.c-chooser__chooser-btn-wpr__left, .c-chooser__chooser-btn-wpr__right {
+    display: flex;
+    align-items: center;
+}
+
+.c-chooser__icon {
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: 1rem;
+}
+
+.c-chooser__name {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--fc-primary);
+}
+
+.c-chooser__selected {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--fc-secondary);
+}
+
+.c-chooser__open-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-left: 1rem;
+}

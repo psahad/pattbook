@@ -6,6 +6,8 @@ import Button from "./Button/Button";
 import DetailCard from "./DetailCard/DetailCard";
 import { OverviewCard } from "./OverviewCard/OverviewCard";
 import { ChartDoughnut } from "./ChartDoughnut/ChartDoughnut";
+import { Chooser } from "./Chooser/Chooser";
+import Modal from "./Modal/Modal";
 
 export {
     Header,
@@ -15,5 +17,7 @@ export {
     Button,
     DetailCard,
     OverviewCard,
-    ChartDoughnut
+    ChartDoughnut,
+    Chooser,
+    Modal
 }

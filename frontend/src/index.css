@@ -182,6 +182,10 @@ a {
   color: inherit;
 }
 
+button {
+  background-color: transparent;
+}
+
 p,
 h1,
 h2,

@@ -1,0 +1,23 @@
+.p-profile {
+    padding: 3.8rem 2rem 1.6rem;
+    overflow: auto;
+}
+
+.p-profile__section-profile {
+    margin-bottom: 4.8rem;
+}
+
+.p-profile__profile-name {
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--fc-primary);
+}
+
+.p-profile__section__fs-inp-item {
+    display: flex;
+    align-items: center;
+}
+
+.p-profile__section__fs-inp-item:not(:first-child) {
+    margin-top: 1.2rem;
+}

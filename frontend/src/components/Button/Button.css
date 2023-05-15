@@ -8,12 +8,12 @@
     font-weight: 500;
 }
 
-.c-button__btn--primary {
+.c-button__btn--primary, .c-button__btn--primary-sm {
     background-color: var(--clr-primary);
     color: var(--fc-btn-primary);
 }
 
-.c-button__btn--secondary {
+.c-button__btn--secondary, .c-button__btn--secondary-sm {
     background-color: inherit;
     background-color: var(--bg-primary);
     color: var(--clr-primary);
@@ -28,4 +28,9 @@
     background-color: var(--fc-secondary);
     border-color: var(--fc-secondary);
     /* border-color:var(--clr-primary); */
+}
+
+.c-button__btn--primary-sm, .c-button__btn--secondary-sm {
+    padding: 0.8rem 1rem;
+    font-size: 1.4rem;
 }
