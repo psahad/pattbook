@@ -1,5 +1,5 @@
 .page {
-    height: calc(100dvh - 61px);
+    height: calc(100dvh - 6.1rem);
     /* height: calc(100dvh - 48px); */
     background-color: var(--bg-primary);
 }
