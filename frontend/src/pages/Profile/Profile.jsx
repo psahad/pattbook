@@ -4,12 +4,9 @@ import {useLocalStorage} from "../../hooks/useStorage";
 import {capitalizeFirstLetter} from "../../utils/formatter";
 import "./Profile.css";
 import useTranslation from "../../hooks/useTranslation";
+import { SETTINGS } from "../../constants/constants";
 
-const initialSettings = {
-  fontSize: "normal",
-  theme: "primaryLight",
-  language: "english",
-};
+const initialSettings = SETTINGS;
 
 const Profile = () => {
   const [selectedFs, setSelectedFs] = useState(initialSettings.fontSize);

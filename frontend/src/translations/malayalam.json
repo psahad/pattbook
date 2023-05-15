@@ -1,0 +1,83 @@
+{
+    "header": {
+        "list": "പട്ടിക",
+        "add": "ചേർക്കുക",
+        "statistics": "റിപ്പോർട്ട്",
+        "profile": "പ്രൊഫൈൽ"
+    },
+    "list": {
+        "tab": {
+            "all": "All",
+            "lender": "Lender",
+            "borrower": "Borrower"
+        }
+    },
+    "details": {
+
+    },
+    "add": {
+        "tab": {
+            "lending": {
+                "label": "Lending",
+                "title": "Add a lending to your account"
+            },
+            "borrowing": {
+                "label": "Borrowing",
+                "title": "Add a borrowing to your account"
+            },
+            "inputs": {
+                "lenderName": "Name of Lender",
+                "borrowerName": "Name of Borrower",
+                "amount": "Amount",
+                "purpose": "Purpose",
+                "returnDate": "Return expected on",
+                "lenderSubmit": "Add",
+                "borrowerSubmit": "Add",
+                "closedOn": "Closed on",
+                "createdOn": "Created on",
+                "closeButton": "Close",
+                "status": "Status",
+                "open": "Open",
+                "closed": "Closed"
+            }
+        }
+    },
+    "validations": {
+        "mandatory": "This field is mandatory"
+    },
+    "profile": {
+        "menus": {
+            "fontSize": {
+                "label": "Font Size",
+                "modal": {
+                    "title": "Choose a font size",
+                    "btnPrimary": "Save",
+                    "btnSecondary": "Close"
+                },
+                "options": {
+                    "small": "Small",
+                    "normal": "Normal",
+                    "large": "Large"
+                }
+            },
+            "language": {
+                "label": "Language",
+                "modal": {
+                    "title": "Choose a language",
+                    "btnPrimary": "Save",
+                    "btnSecondary": "Close"
+                },
+                "options": {
+                    "english": {
+                        "label": "English",
+                        "value": "english"
+                    },
+                    "malayalam": {
+                        "label": "മലയാളം",
+                        "value": "malayalam"
+                    }
+                }
+            }
+        }
+    }
+}

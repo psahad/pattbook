@@ -1,2 +1,2 @@
-export * as en from "./en.json"
-export * as ml from "./ml.json"
+export * as english from "./english.json"
+export * as malayalam from "./malayalam.json"
