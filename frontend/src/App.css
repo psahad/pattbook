@@ -121,6 +121,19 @@
   background-color: var(--theme-secondary-dark-2);
 }
 
+.theme__radio--reddishRose-light:first-child {
+  background-color: var(--theme-reddishRose-light-1);
+}
+.theme__radio--reddishRose-light:last-child {
+  background-color: var(--theme-reddishRose-light-2);
+}
+.theme__radio--reddishRose-dark:first-child {
+  background-color: var(--theme-reddishRose-dark-1);
+}
+.theme__radio--reddishRose-dark:last-child {
+  background-color: var(--theme-reddishRose-dark-2);
+}
+
 /* Icon */
 .icon__fill-fc-primary, .icon__fill-fc-primary > * {
   fill: var(--fc-primary)

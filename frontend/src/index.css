@@ -57,6 +57,10 @@
   --theme-secondary-light-2: #f9fafb;
   --theme-secondary-dark-1: #2ce975;
   --theme-secondary-dark-2: #3B444B;
+  --theme-reddishRose-light-1: #e92c55;
+  --theme-reddishRose-light-2: #f9fafb;
+  --theme-reddishRose-dark-1: #e92c55;
+  --theme-reddishRose-dark-2: #3B444B;
 
   --clr-primary: #30c5ca;
   --clr-primary-light: #2DC6C9;
@@ -157,21 +161,29 @@ body.theme-primary-dark {
 body.theme-secondary-light {
   --clr-primary: var(--theme-secondary-light-1);
 
-  /* header */
   --fc-header-primary-active: var(--clr-primary);
-
-  /* header icon */
   --icon-fill-active: var(--clr-primary);
   --icon-stroke-active: var(--clr-primary);
 }
-
 body.theme-secondary-dark {
   --clr-primary: var(--theme-secondary-dark-1);
 
-    /* header */
     --fc-header-primary-active: var(--clr-primary);
+    --icon-fill-active: var(--clr-primary);
+    --icon-stroke-active: var(--clr-primary);
+}
 
-    /* header icon */
+body.theme-reddishRose-light {
+  --clr-primary: var(--theme-reddishRose-light-1);
+
+  --fc-header-primary-active: var(--clr-primary);
+  --icon-fill-active: var(--clr-primary);
+  --icon-stroke-active: var(--clr-primary);
+}
+body.theme-reddishRose-dark {
+  --clr-primary: var(--theme-reddishRose-dark-1);
+
+    --fc-header-primary-active: var(--clr-primary);
     --icon-fill-active: var(--clr-primary);
     --icon-stroke-active: var(--clr-primary);
 }

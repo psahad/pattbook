@@ -14,8 +14,10 @@
 }
 
 .p-profile__section__fs-inp-wpr--direction-row {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 1rem;
+    justify-items: center;
 }
 
 .p-profile__section__fs-inp-item {
@@ -29,5 +31,5 @@
 
 .p-profile__section__fs-inp-wpr--direction-row .p-profile__section__fs-inp-item:not(:first-child) {
     margin-top: 0;
-    margin-left: 3.2rem;
+    /* margin-left: 3.2rem; */
 } 

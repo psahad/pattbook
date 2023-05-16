@@ -101,6 +101,14 @@
                     "secondaryDark": {
                         "label": "Secondary Dark",
                         "value": "secondary-dark"
+                    },
+                    "reddishRoseLight": {
+                        "label": "Reddish Rose Light",
+                        "value": "reddishRose-light"
+                    },
+                    "reddishRoseDark": {
+                        "label": "Reddish Rose Dark",
+                        "value": "reddishRose-dark"
                     }
                 }
             }
