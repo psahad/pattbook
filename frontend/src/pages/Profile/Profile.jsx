@@ -5,6 +5,7 @@ import {capitalizeFirstLetter} from "../../utils/formatter";
 import "./Profile.css";
 import useTranslation from "../../hooks/useTranslation";
 import {SETTINGS} from "../../constants/constants";
+import { changeHTMLFs, changeHTMLTheme } from "../../utils/utils";
 
 const initialSettings = SETTINGS;
 
@@ -73,42 +74,6 @@ const Profile = () => {
     setSettings(JSON.stringify({...parsedSettings, theme: selectedTheme}));
     formThemeRef.current.submit();
     changeHTMLTheme(selectedTheme);
-  };
-
-  const changeHTMLFs = (fontSize) => {
-    // let fontSizeInPX = 10;
-    switch (fontSize) {
-      case "small":
-        // fontSizeInPX = 8;
-        document.documentElement.className = "small";
-        break;
-      case "normal":
-        // fontSizeInPX = 10;
-        document.documentElement.className = "";
-        break;
-      case "large":
-        // fontSizeInPX = 12;
-        document.documentElement.className = "large";
-        break;
-
-      default:
-        break;
-    }
-    // document.documentElement.style.fontSize = fontSizeInPX + "px";
-  };
-
-  const changeHTMLTheme = (theme) => {
-    switch (theme) {
-      case "primary-light":
-        document.body.className = "";
-        break;
-      case "primary-dark":
-        document.body.className = "theme-primary-dark";
-        break;
-
-      default:
-        break;
-    }
   };
 
   const selectedThemeComponent = (
