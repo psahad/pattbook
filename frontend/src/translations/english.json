@@ -86,13 +86,13 @@
                     "btnSecondary": "Close"
                 },
                 "options": {
-                    "bluishLight": {
-                        "label": "Bluish Light",
-                        "value": "bluish-light"
+                    "primaryLight": {
+                        "label": "Primary Light",
+                        "value": "primary-light"
                     },
-                    "bluishDark": {
-                        "label": "Bluish Dark",
-                        "value": "bluish-dark"
+                    "primaryDark": {
+                        "label": "Primary Dark",
+                        "value": "primary-dark"
                     }
                 }
             }

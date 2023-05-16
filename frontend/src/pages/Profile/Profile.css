@@ -13,6 +13,11 @@
     color: var(--fc-primary);
 }
 
+.p-profile__section__fs-inp-wpr--direction-row {
+    display: flex;
+    align-items: center;
+}
+
 .p-profile__section__fs-inp-item {
     display: flex;
     align-items: center;
@@ -21,3 +26,8 @@
 .p-profile__section__fs-inp-item:not(:first-child) {
     margin-top: 1.2rem;
 }
+
+.p-profile__section__fs-inp-wpr--direction-row .p-profile__section__fs-inp-item:not(:first-child) {
+    margin-top: 0;
+    margin-left: 3.2rem;
+} 

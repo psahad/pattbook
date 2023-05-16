@@ -33,11 +33,11 @@ const useSettings = () => {
 
   const changeHTMLTheme = (theme) => {
     switch (theme) {
-      case "bluish-light":
+      case "primary-light":
         document.body.className = ""
         break;
-      case "bluish-dark":
-        document.body.className = "theme-bluish-dark"
+      case "primary-dark":
+        document.body.className = "theme-primary-dark"
         break;
     
       default:

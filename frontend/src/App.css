@@ -52,6 +52,64 @@
   color: var(--clr-primary);
 }
 
+/* Theme radio */
+.theme__radio-wpr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+}
+
+.theme__radio-wpr--sm {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.6rem;
+}
+.theme__radio-wpr--sm .theme__radio {
+  width: 2.2rem;
+  height: 1.1rem;
+}
+
+.input-theme-radio-inp:checked + .theme__radio-wpr{
+  border: 2px solid var(--clr-primary);
+
+}
+
+.theme__radio {
+  display: inline-block;
+  flex-shrink: 0 ;
+  width: 3rem;
+  height: 1.5rem;
+}
+
+
+.theme__radio:first-child {
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+.theme__radio:last-child {
+  border-radius: 0 0 1.5rem 1.5rem;
+}
+
+.theme__radio--primary-light:first-child {
+  background-color: var(--theme-primary-light-1);
+}
+
+.theme__radio--primary-light:last-child {
+  background-color: var(--theme-primary-light-2);
+}
+.theme__radio--primary-dark:first-child {
+  background-color: var(--theme-primary-dark-1);
+}
+
+.theme__radio--primary-dark:last-child {
+  background-color: var(--theme-primary-dark-2);
+}
+
 /* Icon */
 .icon__fill-fc-primary, .icon__fill-fc-primary > * {
   fill: var(--fc-primary)

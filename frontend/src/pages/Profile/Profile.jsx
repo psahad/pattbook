@@ -73,16 +73,7 @@ const Profile = () => {
     setSettings(JSON.stringify({...parsedSettings, theme: selectedTheme}));
     formThemeRef.current.submit();
     changeHTMLTheme(selectedTheme);
-    // window.location.reload();
   };
-
-  // const handleThemeChange = () => {
-  //   document.body.classList.toggle("theme-dark-green");
-  // };
-  // const style = {
-  //   padding: "1rem",
-  //   margin: "3rem",
-  // };
 
   const changeHTMLFs = (fontSize) => {
     // let fontSizeInPX = 10;
@@ -108,17 +99,24 @@ const Profile = () => {
 
   const changeHTMLTheme = (theme) => {
     switch (theme) {
-      case "bluish-light":
+      case "primary-light":
         document.body.className = "";
         break;
-      case "bluish-dark":
-        document.body.className = "theme-bluish-dark";
+      case "primary-dark":
+        document.body.className = "theme-primary-dark";
         break;
 
       default:
         break;
     }
   };
+
+  const selectedThemeComponent = (
+    <div className="theme__radio-wpr theme__radio-wpr--sm">
+      <span className={`theme__radio theme__radio--${selectedTheme}`}></span>
+      <span className={`theme__radio theme__radio--${selectedTheme}`}></span>
+    </div>
+  );
 
   useEffect(() => {
     console.log(selectedLang);
@@ -244,51 +242,60 @@ const Profile = () => {
           btnSecondary={t("profile.menus.theme.modal.btnSecondary")}
           onClickBtnPrimary={onClickSaveTheme}
           onClickBtnSecondary={handleThemeFormReset}
-          selectedValue={capitalizeFirstLetter(parsedSettings.theme)}
+          selectedValue={selectedThemeComponent}
         >
           <form method="dialog" ref={formThemeRef}>
-            <ul className="p-profile__section__fs-inp-wpr">
+            <ul className="p-profile__section__fs-inp-wpr p-profile__section__fs-inp-wpr--direction-row">
               <li className="p-profile__section__fs-inp-item">
-                <input
-                  type="radio"
-                  className="inp-radio"
-                  name="fontSize"
-                  id="theme-bluish-light"
-                  value={t("profile.menus.theme.options.bluishLight.value")}
-                  onChange={handleThemeChange}
-                  checked={
-                    selectedTheme ===
-                    t("profile.menus.theme.options.bluishLight.value")
-                  }
-                />
-                <label className="label-radio" htmlFor="theme-bluish-light">
-                  {t("profile.menus.theme.options.bluishLight.label")}
+                <label
+                  htmlFor="theme-primary-light"
+                  className="label__theme-radio-inp"
+                >
+                  <input
+                    type="radio"
+                    name="theme"
+                    id="theme-primary-light"
+                    className="input-theme-radio-inp"
+                    value={t("profile.menus.theme.options.primaryLight.value")}
+                    onChange={handleThemeChange}
+                    checked={
+                      selectedTheme ===
+                      t("profile.menus.theme.options.primaryLight.value")
+                    }
+                  />
+                  <div className="theme__radio-wpr">
+                    <span className="theme__radio theme__radio--primary-light"></span>
+                    <span className="theme__radio theme__radio--primary-light"></span>
+                  </div>
                 </label>
               </li>
               <li className="p-profile__section__fs-inp-item">
-                <input
-                  type="radio"
-                  className="inp-radio"
-                  name="theme"
-                  id="theme-bluish-dark"
-                  value={t("profile.menus.theme.options.bluishDark.value")}
-                  onChange={handleThemeChange}
-                  checked={
-                    selectedTheme ===
-                    t("profile.menus.theme.options.bluishDark.value")
-                  }
-                />
-                <label className="label-radio" htmlFor="theme-bluish-dark">
-                  {t("profile.menus.theme.options.bluishDark.label")}
+                <label
+                  htmlFor="theme-primary-dark"
+                  className="label__theme-radio-inp"
+                >
+                  <input
+                    type="radio"
+                    name="theme"
+                    id="theme-primary-dark"
+                    className="input-theme-radio-inp"
+                    value={t("profile.menus.theme.options.primaryDark.value")}
+                    onChange={handleThemeChange}
+                    checked={
+                      selectedTheme ===
+                      t("profile.menus.theme.options.primaryDark.value")
+                    }
+                  />
+                  <div className="theme__radio-wpr">
+                    <span className="theme__radio theme__radio--primary-dark"></span>
+                    <span className="theme__radio theme__radio--primary-dark"></span>
+                  </div>
                 </label>
               </li>
             </ul>
           </form>
         </Chooser>
       </section>
-      {/* <button style={style} onClick={handleThemeChange}>
-        Theme Change
-      </button> */}
     </div>
   );
 };
@@ -296,7 +303,11 @@ const Profile = () => {
 export default Profile;
 
 const iconFontSize = (
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="icon__fill-fc-primary">
+  <svg
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon__fill-fc-primary"
+  >
     <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
     <g
       id="SVGRepo_tracerCarrier"
@@ -348,7 +359,11 @@ const iconLanguage = (
 );
 
 const iconTheme = (
-  <svg className="icon__fill-fc-primary"  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    className="icon__fill-fc-primary"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
     <g
       id="SVGRepo_tracerCarrier"
