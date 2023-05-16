@@ -207,27 +207,6 @@ const Profile = () => {
           <form method="dialog" ref={formThemeRef}>
             <ul className="p-profile__section__fs-inp-wpr p-profile__section__fs-inp-wpr--direction-row">
               <li className="p-profile__section__fs-inp-item">
-                {/* <label
-                  htmlFor="theme-primary-light"
-                  className="label__theme-radio-inp"
-                >
-                  <input
-                    type="radio"
-                    name="theme"
-                    id="theme-primary-light"
-                    className="input-theme-radio-inp"
-                    value={t("profile.menus.theme.options.primaryLight.value")}
-                    onChange={handleThemeChange}
-                    checked={
-                      selectedTheme ===
-                      t("profile.menus.theme.options.primaryLight.value")
-                    }
-                  />
-                  <div className="theme__radio-wpr">
-                    <span className="theme__radio theme__radio--primary-light"></span>
-                    <span className="theme__radio theme__radio--primary-light"></span>
-                  </div>
-                </label> */}
                 <InputTheme
                   labelClasses={"label__theme-radio-inp"}
                   inpId={"theme-primary-light"}
@@ -237,29 +216,6 @@ const Profile = () => {
                   selectedTheme={selectedTheme}
                 />
               </li>
-              {/* <li className="p-profile__section__fs-inp-item">
-                <label
-                  htmlFor="theme-primary-dark"
-                  className="label__theme-radio-inp"
-                >
-                  <input
-                    type="radio"
-                    name="theme"
-                    id="theme-primary-dark"
-                    className="input-theme-radio-inp"
-                    value={t("profile.menus.theme.options.primaryDark.value")}
-                    onChange={handleThemeChange}
-                    checked={
-                      selectedTheme ===
-                      t("profile.menus.theme.options.primaryDark.value")
-                    }
-                  />
-                  <div className="theme__radio-wpr">
-                    <span className="theme__radio theme__radio--primary-dark"></span>
-                    <span className="theme__radio theme__radio--primary-dark"></span>
-                  </div>
-                </label>
-              </li> */}
               <li className="p-profile__section__fs-inp-item">
                 <InputTheme
                   labelClasses={"label__theme-radio-inp"}
