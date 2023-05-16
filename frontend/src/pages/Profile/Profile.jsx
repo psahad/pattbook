@@ -1,11 +1,11 @@
 import {useEffect, useRef, useState} from "react";
-import {Chooser} from "../../components";
+import {Chooser, InputTheme, InputThemeSelected} from "../../components";
 import {useLocalStorage} from "../../hooks/useStorage";
 import {capitalizeFirstLetter} from "../../utils/formatter";
 import "./Profile.css";
 import useTranslation from "../../hooks/useTranslation";
 import {SETTINGS} from "../../constants/constants";
-import { changeHTMLFs, changeHTMLTheme } from "../../utils/utils";
+import {changeHTMLFs, changeHTMLTheme} from "../../utils/utils";
 
 const initialSettings = SETTINGS;
 
@@ -76,12 +76,7 @@ const Profile = () => {
     changeHTMLTheme(selectedTheme);
   };
 
-  const selectedThemeComponent = (
-    <div className="theme__radio-wpr theme__radio-wpr--sm">
-      <span className={`theme__radio theme__radio--${selectedTheme}`}></span>
-      <span className={`theme__radio theme__radio--${selectedTheme}`}></span>
-    </div>
-  );
+  const selectedThemeComponent = <InputThemeSelected selectedTheme={selectedTheme} />;
 
   useEffect(() => {
     console.log(selectedLang);
@@ -212,7 +207,7 @@ const Profile = () => {
           <form method="dialog" ref={formThemeRef}>
             <ul className="p-profile__section__fs-inp-wpr p-profile__section__fs-inp-wpr--direction-row">
               <li className="p-profile__section__fs-inp-item">
-                <label
+                {/* <label
                   htmlFor="theme-primary-light"
                   className="label__theme-radio-inp"
                 >
@@ -232,9 +227,17 @@ const Profile = () => {
                     <span className="theme__radio theme__radio--primary-light"></span>
                     <span className="theme__radio theme__radio--primary-light"></span>
                   </div>
-                </label>
+                </label> */}
+                <InputTheme
+                  labelClasses={"label__theme-radio-inp"}
+                  inpId={"theme-primary-light"}
+                  inpClasses={"input-theme-radio-inp"}
+                  inpValue={t("profile.menus.theme.options.primaryLight.value")}
+                  onThemeChange={handleThemeChange}
+                  selectedTheme={selectedTheme}
+                />
               </li>
-              <li className="p-profile__section__fs-inp-item">
+              {/* <li className="p-profile__section__fs-inp-item">
                 <label
                   htmlFor="theme-primary-dark"
                   className="label__theme-radio-inp"
@@ -256,6 +259,16 @@ const Profile = () => {
                     <span className="theme__radio theme__radio--primary-dark"></span>
                   </div>
                 </label>
+              </li> */}
+              <li className="p-profile__section__fs-inp-item">
+                <InputTheme
+                  labelClasses={"label__theme-radio-inp"}
+                  inpId={"theme-primary-dark"}
+                  inpClasses={"input-theme-radio-inp"}
+                  inpValue={t("profile.menus.theme.options.primaryDark.value")}
+                  onThemeChange={handleThemeChange}
+                  selectedTheme={selectedTheme}
+                />
               </li>
             </ul>
           </form>

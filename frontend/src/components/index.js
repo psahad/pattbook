@@ -8,6 +8,7 @@ import { OverviewCard } from "./OverviewCard/OverviewCard";
 import { ChartDoughnut } from "./ChartDoughnut/ChartDoughnut";
 import { Chooser } from "./Chooser/Chooser";
 import Modal from "./Modal/Modal";
+import InputTheme, {InputThemeSelected} from "./InputTheme/InputTheme";
 
 export {
     Header,
@@ -19,5 +20,7 @@ export {
     OverviewCard,
     ChartDoughnut,
     Chooser,
-    Modal
+    Modal,
+    InputTheme,
+    InputThemeSelected
 }
