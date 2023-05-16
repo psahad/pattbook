@@ -93,6 +93,14 @@
                     "primaryDark": {
                         "label": "Primary Dark",
                         "value": "primary-dark"
+                    },
+                    "secondaryLight": {
+                        "label": "Secondary Light",
+                        "value": "secondary-light"
+                    },
+                    "secondaryDark": {
+                        "label": "Secondary Dark",
+                        "value": "secondary-dark"
                     }
                 }
             }

@@ -53,6 +53,10 @@
   --theme-primary-light-2: #f9fafb;
   --theme-primary-dark-1: #2DC6C9;
   --theme-primary-dark-2: #3B444B;
+  --theme-secondary-light-1: #2ce975;
+  --theme-secondary-light-2: #f9fafb;
+  --theme-secondary-dark-1: #2ce975;
+  --theme-secondary-dark-2: #3B444B;
 
   --clr-primary: #30c5ca;
   --clr-primary-light: #2DC6C9;
@@ -116,9 +120,7 @@
   --motion-1-fast: 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-body.theme-primary-dark {
-  --clr-primary: #30c5ca;
-
+body.theme-dark {
   /* background */
   --bg-primary: #13171A;
   --bg-secondary: #3B444B;
@@ -146,6 +148,32 @@ body.theme-primary-dark {
   --fc-chart-green: rgb(2, 232, 113);
   --fc-chart-red: rgb(255, 16, 96);
 
+}
+
+body.theme-primary-dark {
+  --clr-primary: #30c5ca;
+}
+
+body.theme-secondary-light {
+  --clr-primary: var(--theme-secondary-light-1);
+
+  /* header */
+  --fc-header-primary-active: var(--clr-primary);
+
+  /* header icon */
+  --icon-fill-active: var(--clr-primary);
+  --icon-stroke-active: var(--clr-primary);
+}
+
+body.theme-secondary-dark {
+  --clr-primary: var(--theme-secondary-dark-1);
+
+    /* header */
+    --fc-header-primary-active: var(--clr-primary);
+
+    /* header icon */
+    --icon-fill-active: var(--clr-primary);
+    --icon-stroke-active: var(--clr-primary);
 }
 
 /* ::::::::::::::::::::::::::: Resets :::::::::::::::::::::::::::::: */

@@ -5,7 +5,13 @@ export const changeHTMLTheme = (theme) => {
       document.body.className = "";
       break;
     case "primary-dark":
-      document.body.className = "theme-primary-dark";
+      document.body.className = "theme-primary-dark theme-dark";
+      break;
+    case "secondary-light":
+      document.body.className = "theme-secondary-light";
+      break;
+    case "secondary-dark":
+      document.body.className = "theme-secondary-dark theme-dark";
       break;
 
     default:

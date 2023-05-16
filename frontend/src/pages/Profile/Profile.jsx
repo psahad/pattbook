@@ -226,6 +226,26 @@ const Profile = () => {
                   selectedTheme={selectedTheme}
                 />
               </li>
+              <li className="p-profile__section__fs-inp-item">
+                <InputTheme
+                  labelClasses={"label__theme-radio-inp"}
+                  inpId={"theme-secondary-light"}
+                  inpClasses={"input-theme-radio-inp"}
+                  inpValue={t("profile.menus.theme.options.secondaryLight.value")}
+                  onThemeChange={handleThemeChange}
+                  selectedTheme={selectedTheme}
+                />
+              </li>
+              <li className="p-profile__section__fs-inp-item">
+                <InputTheme
+                  labelClasses={"label__theme-radio-inp"}
+                  inpId={"theme-secondary-dark"}
+                  inpClasses={"input-theme-radio-inp"}
+                  inpValue={t("profile.menus.theme.options.secondaryDark.value")}
+                  onThemeChange={handleThemeChange}
+                  selectedTheme={selectedTheme}
+                />
+              </li>
             </ul>
           </form>
         </Chooser>

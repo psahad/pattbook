@@ -98,16 +98,27 @@
 .theme__radio--primary-light:first-child {
   background-color: var(--theme-primary-light-1);
 }
-
 .theme__radio--primary-light:last-child {
   background-color: var(--theme-primary-light-2);
 }
 .theme__radio--primary-dark:first-child {
   background-color: var(--theme-primary-dark-1);
 }
-
 .theme__radio--primary-dark:last-child {
   background-color: var(--theme-primary-dark-2);
+}
+
+.theme__radio--secondary-light:first-child {
+  background-color: var(--theme-secondary-light-1);
+}
+.theme__radio--secondary-light:last-child {
+  background-color: var(--theme-secondary-light-2);
+}
+.theme__radio--secondary-dark:first-child {
+  background-color: var(--theme-secondary-dark-1);
+}
+.theme__radio--secondary-dark:last-child {
+  background-color: var(--theme-secondary-dark-2);
 }
 
 /* Icon */
