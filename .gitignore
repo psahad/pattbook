@@ -8,6 +8,7 @@
 # dependencies
 .vscode
 /node_modules
+.env
 /.pnp
 .pnp.js
 
