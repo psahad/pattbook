@@ -15,16 +15,21 @@ const getAllUsers = asyncHandler(async (req, res) => {
 // @route GET /api/user/login
 // @access public
 const loginUser = asyncHandler(async (req, res) => {
-  const {phone, password} = req.body
+  const {phone, password} = req.body;
 
   // find user with entered phone number
-  const user = await User.findOne({phone})
+  const user = await User.findOne({phone});
 
   if (user && password && (await bcrypt.compare(password, user.password))) {
-    res.status(200).json({_id: user.id, name: user.name, phone: user.phone})
+    res.status(200).json({
+      _id: user.id,
+      name: user.name,
+      phone: user.phone,
+      token: generateToken(user.id),
+    });
   } else {
-    res.status(400)
-    throw new Error("Invalid credential")
+    res.status(400);
+    throw new Error("Invalid credential");
   }
 });
 
@@ -67,10 +72,15 @@ const registerUser = asyncHandler(async (req, res) => {
 
   const user = await User.create(payload);
   if (user) {
-    res.status(201).json({_id: user.id, name: user.name, phone: user.phone});
+    res.status(201).json({
+      _id: user.id,
+      name: user.name,
+      phone: user.phone,
+      token: generateToken(user.id),
+    });
   } else {
     res.status(400);
-    throw new Error("User registration failed")
+    throw new Error("User registration failed");
   }
 });
 
@@ -97,10 +107,17 @@ const updateUser = asyncHandler(async (req, res) => {
   res.status(200).json(updatedUser);
 });
 
+// generate JWT token
+const generateToken = (id) => {
+  return jwt.sign({id}, process.env.JWT_SECRET, {
+    expiresIn: "30d",
+  });
+};
+
 module.exports = {
   getUser,
   registerUser,
   updateUser,
   getAllUsers,
-  loginUser
+  loginUser,
 };
