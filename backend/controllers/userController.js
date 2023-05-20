@@ -33,12 +33,20 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc get current user
+// @route GET /api/user/me
+// @access private
+const getCurrentUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user.id).select("-password");
+  res.status(200).json(user);
+});
+
 // @desc get a user
-// @route GET /api/user/id
+// @route GET /api/user/:id
 // @access private
 const getUser = asyncHandler(async (req, res) => {
   const userId = req.params.id;
-  const user = await User.find({_id: userId});
+  const user = await User.find({_id: userId}).select("-password");
   res.status(200).json(user);
 });
 
@@ -120,4 +128,5 @@ module.exports = {
   updateUser,
   getAllUsers,
   loginUser,
+  getCurrentUser,
 };
