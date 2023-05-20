@@ -4,7 +4,7 @@ const activitySchema = mongoose.Schema({
   type: {
     type: String,
     enum: ["lend", "borrow"],
-    default: "lend"
+    default: "lend",
   },
   from: {
     type: mongoose.Types.ObjectId,
@@ -22,19 +22,21 @@ const activitySchema = mongoose.Schema({
     required: [true, "Amount is required"],
   },
   purpose: {
-    type: String
+    type: String,
+    default: null
   },
   returnExpectedAt: {
-    type: Date
+    type: Date,
+    default: null
   },
   status: {
     type: String,
     enum: ["request", "open", "close"],
-    default: "open"
+    default: "open",
   },
-  requestedAt: Date,
-  openAt: Date,
-  closeAt: Date
+  requestedAt: {type: Date, default: null},
+  openAt: {type: Date, default: null},
+  closeAt: {type: Date, default: null},
 });
 
 module.exports = mongoose.model("Activity", activitySchema);

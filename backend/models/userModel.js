@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const settingsSchema = mongoose.Schema({
+const settingsSchema = new mongoose.Schema({
   fontSize: {
     type: String,
     enum: ["small", "normal", "large"],
@@ -10,13 +10,13 @@ const settingsSchema = mongoose.Schema({
     type: String,
     default: "english",
   },
-  language: {
+  theme: {
     type: String,
     default: "primaryLight",
   },
 }) 
 
-const userSchema = mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -34,13 +34,16 @@ const userSchema = mongoose.Schema(
       required: [true, 'Please add a password'],
     },
     settings: {
-      type: settingsSchema
+      type: settingsSchema,
+      default: {}
     },
     total_lending: {
-      type: Number
+      type: Number,
+      default: 0,
     },
     total_borrowing: {
-      type: Number
+      type: Number,
+      default: 0,
     }
   },
   {
