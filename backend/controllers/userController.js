@@ -41,6 +41,28 @@ const getCurrentUser = asyncHandler(async (req, res) => {
   res.status(200).json(user);
 });
 
+// @desc update current user
+// @route PUT /api/user/ne
+// @access private
+const updateCurrentUser = asyncHandler(async (req, res) => {
+  console.log(req.user);
+  const userId = req.user.id;
+  const payload = req.body;
+
+  const user = await User.findById(userId);
+
+  if (!user) {
+    res.status(404);
+    throw new Error("User not found");
+  }
+
+  const updatedUser = await User.findByIdAndUpdate(userId, payload, {
+    new: true,
+  });
+
+  res.status(200).json(updatedUser);
+});
+
 // @desc get a user
 // @route GET /api/user/:id
 // @access private
@@ -97,9 +119,7 @@ const registerUser = asyncHandler(async (req, res) => {
 // @access private
 const updateUser = asyncHandler(async (req, res) => {
   const userId = req.params.id;
-  const payload = {
-    user_name: req.body.userName,
-  };
+  const payload = req.body;
 
   const user = await User.findById(userId);
 
@@ -129,4 +149,5 @@ module.exports = {
   getAllUsers,
   loginUser,
   getCurrentUser,
+  updateCurrentUser
 };
