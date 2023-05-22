@@ -56,22 +56,15 @@ const createActivity = asyncHandle(async (req, res) => {
     }
   }
 
-  console.log(payload);
-
-  
   // create activity according to activity type 
   if (type === "lend") {
-
     if (!to) {
       res.status(400)
       throw new Error ("User to is required")
     }
-
     const from = req.user.id
-    
     activity = await Activity.create({...payload, to, from})
-  } else {
-    
+  } else { 
     if (!from) {
       res.status(400)
       throw new Error ("User to is required")
@@ -86,7 +79,6 @@ const createActivity = asyncHandle(async (req, res) => {
     res.status(400)
     throw new Error ("Activity creation failed")
   }
-
 
 });
 
