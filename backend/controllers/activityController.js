@@ -93,7 +93,8 @@ const createActivity = asyncHandler(async (req, res) => {
 // @route GET /api/activity
 // @access private
 const getAllActivities = asyncHandler(async (req, res) => {
-  const activities = await Activity.find();
+  const query = req.query;
+  const activities = await Activity.find(query);
   res.status(200).json(activities);
 });
 
@@ -101,19 +102,21 @@ const getAllActivities = asyncHandler(async (req, res) => {
 // @route GET /api/activity/:
 // @access private
 const getActivity = asyncHandler(async (req, res) => {
-  const activityId = req.params.id
+  const activityId = req.params.id;
   // check if activityId is present in the request or not
-  const activity = await Activity.findById(activityId)
+  const activity = await Activity.findById(activityId);
   if (!activity) {
-    res.status(400)
-    throw new Error("Activity not found")
+    res.status(400);
+    throw new Error("Activity not found");
   }
 
   // check whether user has permission to view this activity
   const userId = req.user.id;
-  if (!(userId === activity.from.toString() || userId == activity.to.toString())) {
-    res.status(403)
-    throw new Error("User has no permission to view this activity")
+  if (
+    !(userId === activity.from.toString() || userId == activity.to.toString())
+  ) {
+    res.status(403);
+    throw new Error("User has no permission to view this activity");
   }
   res.status(200).json(activity);
 });
@@ -139,7 +142,10 @@ const updateActivity = asyncHandler(async (req, res) => {
   } else if (!(status === "open" || status === "close")) {
     res.status(400);
     throw new Error(`Status: ${status} is not valid`);
-  } else if ((status === "open" && activity.status === "open") || (status === "close" && activity.status === "close")) {
+  } else if (
+    (status === "open" && activity.status === "open") ||
+    (status === "close" && activity.status === "close")
+  ) {
     res.status(400);
     throw new Error(`Activity status is already ${activity.status}`);
   }
@@ -158,24 +164,33 @@ const updateActivity = asyncHandler(async (req, res) => {
       updatingData = {
         status: "open",
         openedAt: new Date().toISOString(),
-      }
+      };
       break;
     case "close":
       updatingData = {
         status: "close",
         closedAt: new Date().toISOString(),
-      }
+      };
       break;
 
     default:
       break;
   }
 
-  const updatedActivity = await Activity.findByIdAndUpdate(activityId, updatingData, {
-    returnDocument: "after"
-  });
+  const updatedActivity = await Activity.findByIdAndUpdate(
+    activityId,
+    updatingData,
+    {
+      returnDocument: "after",
+    }
+  );
 
   res.status(200).json(updatedActivity);
 });
 
-module.exports = {getAllActivities, createActivity, updateActivity, getActivity};
+module.exports = {
+  getAllActivities,
+  createActivity,
+  updateActivity,
+  getActivity,
+};
