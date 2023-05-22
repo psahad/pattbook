@@ -4,6 +4,7 @@ const activitySchema = mongoose.Schema({
   type: {
     type: String,
     enum: ["lend", "borrow"],
+    required: [true, "Type is required"],
     default: "lend",
   },
   from: {
@@ -35,8 +36,8 @@ const activitySchema = mongoose.Schema({
     default: "open",
   },
   requestedAt: {type: Date, default: null},
-  openAt: {type: Date, default: null},
-  closeAt: {type: Date, default: null},
+  openedAt: {type: Date, default: null},
+  closedAt: {type: Date, default: null},
 });
 
 module.exports = mongoose.model("Activity", activitySchema);
