@@ -97,6 +97,27 @@ const getAllActivities = asyncHandler(async (req, res) => {
   res.status(200).json(activities);
 });
 
+// @desc get an activity
+// @route GET /api/activity/:
+// @access private
+const getActivity = asyncHandler(async (req, res) => {
+  const activityId = req.params.id
+  // check if activityId is present in the request or not
+  const activity = await Activity.findById(activityId)
+  if (!activity) {
+    res.status(400)
+    throw new Error("Activity not found")
+  }
+
+  // check whether user has permission to view this activity
+  const userId = req.user.id;
+  if (!(userId === activity.from.toString() || userId == activity.to.toString())) {
+    res.status(403)
+    throw new Error("User has no permission to view this activity")
+  }
+  res.status(200).json(activity);
+});
+
 // @desc update activity
 // @route PUT /api/activity/:id
 // @access private
@@ -157,4 +178,4 @@ const updateActivity = asyncHandler(async (req, res) => {
   res.status(200).json(updatedActivity);
 });
 
-module.exports = {getAllActivities, createActivity, updateActivity};
+module.exports = {getAllActivities, createActivity, updateActivity, getActivity};
