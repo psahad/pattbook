@@ -1,16 +1,10 @@
 const Activity = require("../models/activityModel");
-const asyncHandle = require("express-async-handler");
-// @desc get all activities
-// @route GET /api/activity
-// @access private
-const getAllActivities = (req, res) => {
-  console.log(req);
-};
+const asyncHandler = require("express-async-handler");
 
 // @desc create an activity
 // @route POST /api/activity
 // @access private
-const createActivity = asyncHandle(async (req, res) => {
+const createActivity = asyncHandler(async (req, res) => {
   const {type, to, from, amount, purpose, returnExpectedAt, status, requestedAt, openedAt, closedAt} = req.body;
   const date = new Date()
   let activity;
@@ -79,7 +73,14 @@ const createActivity = asyncHandle(async (req, res) => {
     res.status(400)
     throw new Error ("Activity creation failed")
   }
-
 });
+
+// @desc get all activities
+// @route GET /api/activity
+// @access private
+const getAllActivities = asyncHandler( async(req, res)=> {
+  const activities = await Activity.find()
+  res.status(200).json(activities);
+}) 
 
 module.exports = {getAllActivities, createActivity};
