@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import { useRef, useState} from "react";
 import {Chooser, InputTheme, InputThemeSelected} from "../../components";
 import {useLocalStorage} from "../../hooks/useStorage";
 import {capitalizeFirstLetter} from "../../utils/formatter";
@@ -77,10 +77,6 @@ const Profile = () => {
   };
 
   const selectedThemeComponent = <InputThemeSelected selectedTheme={selectedTheme} />;
-
-  useEffect(() => {
-    console.log(selectedLang);
-  }, [selectedLang]);
 
   return (
     <div className="page p-profile">
@@ -338,11 +334,11 @@ const iconTheme = (
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
     <g
       id="SVGRepo_tracerCarrier"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     ></g>
     <g id="SVGRepo_iconCarrier">
       {" "}
