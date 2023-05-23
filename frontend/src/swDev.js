@@ -22,14 +22,9 @@ export default function swDev() {
 
   let swUrl = `${process.env.PUBLIC_URL}/sw.js`;
 
-  console.log("swUrl ::::", swUrl);
-
-  console.log(navigator.serviceWorker);
-
   if ("serviceWorker" in navigator) {
     console.log("service worker supported");
     navigator.serviceWorker.register(swUrl).then((res) => {
-      console.log("swResponse:", res);
 
       // return res.pushManager.getSubscription().then(function (subscription) {
       //   console.log(subscription);
@@ -50,6 +45,6 @@ export default function swDev() {
     //     });
     //   });
   } else {
-    console.log("service worker not supported");
+    console.error("service worker not supported");
   }
 }

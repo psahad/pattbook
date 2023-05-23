@@ -1,10 +1,7 @@
 let cacheData = "AppV1"
 
-console.log("inside SW file");
-
 // cache files and routes
 this.addEventListener("install", (event) => {
-console.log("inside SW install");
 
     event.waitUntil(
         caches.open(cacheData).then((cache) => {
@@ -31,7 +28,6 @@ console.log("inside SW install");
 
 // serve files on request when offline
 this.addEventListener("fetch", (event) => {
-    console.log("inside SW fetch");
     
     if (!navigator.onLine) {
         console.log("in offline");
