@@ -10,6 +10,8 @@ console.log("inside SW install");
         caches.open(cacheData).then((cache) => {
             cache.addAll([
                 '/static/js/bundle.js',
+                '/static/js/main.28c18e82.js',
+                '/static/css/main.76d6f193.css',
                 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap',
                 "/manifest.json",
                 "/static/media/GraphikRegular.329746577f94a4f1785e.otf",
