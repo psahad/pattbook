@@ -22,6 +22,8 @@ export default function swDev() {
 
   let swUrl = `${process.env.PUBLIC_URL}/sw.js`;
 
+  console.log("swUrl ::::", swUrl);
+
   console.log(navigator.serviceWorker);
 
   if ("serviceWorker" in navigator) {
