@@ -6,6 +6,7 @@ const asyncHandler = require("express-async-handler");
 // @route POST /api/activity
 // @access private
 const createActivity = asyncHandler(async (req, res) => {
+  console.log(req.body);
   const {
     type,
     to,
