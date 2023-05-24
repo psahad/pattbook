@@ -5,6 +5,7 @@ import Overview from './Overview/Overview';
 import Profile from './Profile/Profile';
 import Details from './Details/Details';
 import Signup from './Signup/Signup';
+import Login from './Login/Login';
 
 export {
     List,
@@ -12,5 +13,6 @@ export {
     Overview,
     Profile,
     Details,
-    Signup
+    Signup,
+    Login
 }

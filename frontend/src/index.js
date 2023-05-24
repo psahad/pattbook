@@ -6,7 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from './App';
-import { List, Add, Overview, Profile, Details, Signup } from "./pages";
+import { List, Add, Overview, Profile, Details, Signup, Login } from "./pages";
 import './index.css';
 import swDev from './swDev';
 
@@ -40,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: "signup",
     element: <Signup />,
+  },
+  {
+    path: "login",
+    element: <Login />,
   },
 ]);
 
