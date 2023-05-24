@@ -9,7 +9,7 @@ const port = process.env.PORT || 5000;
 
 connectDB();
 
-const allowedOrigins = ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://pattbook.onrender.com'];
+const allowedOrigins = ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://patt-book.netlify.app'];
 const corsOptions = {
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
