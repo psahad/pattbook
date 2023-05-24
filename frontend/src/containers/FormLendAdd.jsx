@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import {Input, Button} from "../components";
 import useTranslation from "../hooks/useTranslation";
 import { useLocalStorage } from "../hooks/useStorage";
+import { createActivity } from "../api";
 
 const FormLendAdd = () => {
   const {t} = useTranslation();
@@ -38,26 +39,40 @@ const FormLendAdd = () => {
     return formIsValid;
   };
 
-  const handleLendSubmit = (e) => {
+  const handleLendSubmit = async(e) => {
     e.preventDefault();
     const formValidationResult = formValidator();
     console.log("formValidator()", formValidationResult);
     if (!formValidationResult) return;
     const payload = {
-      id: uuidv4(),
+      // id: uuidv4(),
+      // type: "lend",
+      // from: "Sahad P",
+      // to: e.target["borrowerName"].value,
+      // amount: e.target["amount"].value,
+      // purpose: e.target["purpose"].value,
+      // expectedReturnDate: e.target["returnDate"].value,
+      // isOpen: true,
+      // closedAt: null,
+      // createdAt: new Date().toLocaleString(),
       type: "lend",
-      from: "Sahad P",
-      to: e.target["borrowerName"].value,
+      to: "64688e7d35effcf933fe751e",
       amount: e.target["amount"].value,
       purpose: e.target["purpose"].value,
-      expectedReturnDate: e.target["returnDate"].value,
-      isOpen: true,
-      closedAt: null,
-      createdAt: new Date().toLocaleString(),
+      returnExpectedAt: e.target["returnDate"].value,
+      status: "open"
     };
-    parsedLogs.push(payload)
-    setLogs(() => JSON.stringify(parsedLogs))
-    navigateListRef.current = true;
+    try {
+      console.log("creating....");
+      const response = await createActivity(payload)
+      console.log('response', response);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      parsedLogs.push(payload)
+      setLogs(() => JSON.stringify(parsedLogs))
+      navigateListRef.current = true;
+    }
   };
 
   useEffect(() => {
