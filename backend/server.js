@@ -9,13 +9,22 @@ const port = process.env.PORT || 5000;
 
 connectDB();
 
+const allowedOrigins = ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://pattbook.onrender.com'];
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
 const app = express();
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-app.use(cors({
-  origin: "*"
-}));
+app.use(cors(corsOptions));
 
 app.use("/api/user", require("./routes/userRoutes"))
 app.use("/api/activity", require("./routes/activityRoutes"))
