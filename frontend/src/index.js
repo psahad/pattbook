@@ -13,7 +13,6 @@ import swDev from './swDev';
 const router = createBrowserRouter([
   {
     path: "/",
-    // element: <div>Hello world!</div>,
     element: <App />,
     children: [
       {
@@ -36,11 +35,11 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile />,
       },
-      {
-        path: "signup",
-        element: <Signup />,
-      },
     ],
+  },
+  {
+    path: "signup",
+    element: <Signup />,
   },
 ]);
 

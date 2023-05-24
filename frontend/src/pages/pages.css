@@ -4,6 +4,11 @@
     background-color: var(--bg-primary);
 }
 
+.page-full {
+    height: 100vh;
+    height: 100dvh;
+}
+
 .page-section {
     /* background-color: var(--bg-primary); */
     padding: 1.6rem;

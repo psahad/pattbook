@@ -1,0 +1,28 @@
+.p-entry {
+    padding: 0 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-entry__wpr {
+    max-width: 32rem;
+}
+
+.p-entry__form__btn-submit {
+    margin-top: 4.6rem;
+}
+
+.p-entry__navigate-wpr {
+    margin-top: 1.4rem;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--fc-secondary);
+}
+
+.p-entry__navigate-link {
+    font-weight: 500;
+    color: var(--clr-primary);
+}

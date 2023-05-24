@@ -17,6 +17,20 @@
   font-family: var(--ff-montserrat);
 }
 
+/* ::::::: Title ::::::::: */
+.title-page__wpr {
+  margin-bottom: 4rem;
+}
+.title-page {
+  font-weight: 300;
+  text-align: center;
+  color: var(--fc-secondary);
+}
+.title-page--lg {
+  font-size: 3rem;
+  line-height: 3.8rem;
+}
+
 /* ::::::: Input ::::::::: */
 /* radio */
 .label-radio {

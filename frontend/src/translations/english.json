@@ -113,5 +113,28 @@
                 }
             }
         }
+    },
+    "userEntry": {
+        "signup": {
+            "pageTitle": "Create a Pattbook Account",
+            "inputs": {
+                "name": "Name",
+                "phone": "Phone Number",
+                "password": "Password"
+            },
+            "btnSubmit": "Create Account",
+            "navigationTitle": "Already have an account? ",
+            "navigationLink": "Login"
+        },
+        "login": {
+            "pageTitle": "Login to Your Pattbook Account",
+            "inputs": {
+                "phone": "Phone Number",
+                "password": "Password"
+            },
+            "btnSubmit": "Login",
+            "navigationTitle": "Don't have an account?",
+            "navigationLink": "Signup"
+        }
     }
 }
