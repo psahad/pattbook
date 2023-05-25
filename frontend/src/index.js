@@ -63,7 +63,7 @@ const publicRouter = createBrowserRouter([
 //   </React.StrictMode>
 // );
 
-const isAuthenticated = false;
+const isAuthenticated = JSON.parse(localStorage.getItem("access_token")) || null;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

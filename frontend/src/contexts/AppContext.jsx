@@ -1,10 +1,12 @@
 import {createContext} from "react";
+import { useLocalStorage } from "../hooks/useStorage";
 
 export const AppContext = createContext({});
 
 const AppContextProvider = ({children}) => {
-  const appValue = "this is from App context";
-  return <AppContext.Provider value={appValue}>{children}</AppContext.Provider>;
+
+  const value = {};
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
 export default AppContextProvider;

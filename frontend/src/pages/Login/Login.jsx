@@ -1,11 +1,13 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import {Button, Input} from "../../components";
 import useTranslation from "../../hooks/useTranslation";
 import "./Login.css";
 import { loginUser } from "../../api";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Login = () => {
+  const {setLogIn} = useContext(AuthContext) 
   const {t} = useTranslation();
 
   const [formError, setFormError] = useState({
@@ -47,9 +49,14 @@ const Login = () => {
 
     try {
         const response = await loginUser(payload);
-        console.log("Response:",response);
+        console.log("Response:::",response);
+
+        if (response?.status === 200 && response?.data?.token) {
+          setLogIn(response?.data)
+        }
     } catch (error) {
         console.log(error);
+        alert(error)
     }
   };
 

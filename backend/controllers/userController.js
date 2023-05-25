@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
+const { responseFormatter } = require("../utils/formatter");
 
 // @desc get a user
 // @route GET /api/user/:id
@@ -28,14 +29,14 @@ const loginUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({phone});
 
   if (user && password && (await bcrypt.compare(password, user.password))) {
-    res.status(200).json({
+    res.status(200).json(responseFormatter(200, {
       _id: user.id,
       name: user.name,
       phone: user.phone,
       token: generateToken(user.id),
-    });
+    }));
   } else {
-    res.status(400);
+    res.status(401);
     throw new Error("Invalid credential");
   }
 });
@@ -109,12 +110,12 @@ const registerUser = asyncHandler(async (req, res) => {
 
   const user = await User.create(payload);
   if (user) {
-    res.status(201).json({
+    res.status(201).json(responseFormatter(201, {
       _id: user.id,
       name: user.name,
       phone: user.phone,
       token: generateToken(user.id),
-    });
+    }));
   } else {
     res.status(400);
     throw new Error("User registration failed");
