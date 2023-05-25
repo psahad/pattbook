@@ -42,6 +42,7 @@ const AuthContextProvider = ({children}) => {
     user: JSON.parse(user),
     setUser,
     removeUser,
+    removeToken
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

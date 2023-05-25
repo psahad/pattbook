@@ -1,5 +1,4 @@
 import {createContext} from "react";
-import { useLocalStorage } from "../hooks/useStorage";
 
 export const AppContext = createContext({});
 
